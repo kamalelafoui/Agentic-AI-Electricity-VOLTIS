@@ -215,7 +215,7 @@ def build() -> Path:
     stat(slide, 10.95, 3.05, 1.78, 1.15, "8", "régions", BLUE, "national", 24)
     rect(slide, 9.0, 4.38, 3.73, 1.25, SOFT_GOLD, line=RGBColor(0xEE, 0xDB, 0x9A), radius=0.08, shape=5)
     txt(slide, 9.18, 4.55, 3.4, 0.25, "100 % synthétique", 10, RGBColor(0x7A, 0x5B, 0x00), True)
-    txt(slide, 9.18, 4.85, 3.4, 0.6, "Graine fixe 20261112 · aucun client réel · reproductible.", 8.3, MUTED)
+    txt(slide, 9.18, 4.85, 3.4, 0.6, "Graine fixe 20261112 · aucun client réel · aucune API réelle.", 8.3, MUTED)
     txt(slide, 0.55, 5.92, 12.2, 0.3, "Le jeu couvre la consommation, la pointe, les pertes, la continuité, les tarifs et les incidents.",
         10, MUTED)
     footer(slide, 7, TOTAL)
@@ -686,7 +686,7 @@ def build() -> Path:
     rect(slide, 0.55, 1.72, 5.95, 3.65, SOFT_RED, line=RGBColor(0xF0, 0xC9, 0xC4), radius=0.08, shape=5)
     txt(slide, 0.78, 1.90, 5.4, 0.28, "LIMITES ASSUMÉES", 8.5, RGBColor(0xB2, 0x3B, 0x2E), True, char_spacing=1.5)
     paragraphs(slide, 0.78, 2.30, 5.5, 2.9, [
-        ("Données", " synthétiques, pas de SCADA réel."),
+        ("Données", " synthétiques, aucune API réelle ni SCADA."),
         ("Prévision", " par persistance, pas de modèle ML entraîné."),
         ("Retrieval", " TF-IDF, pas d'embeddings."),
         ("Authentification", " absente en démo."),

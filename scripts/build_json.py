@@ -519,6 +519,13 @@ def build_full_manifest(mcp, a2a, rag, graph, arch, cards, benchmark) -> None:
             "author": "Direction Digitale & Exploitation — VOLTIS",
             "dashboard": "http://localhost:8033",
         },
+        "data": {
+            "mode": "synthetic",
+            "real_api": False,
+            "generator": "scripts/build_data.py",
+            "seed": 20261112,
+            "note": "Aucune API réelle ONEE / ANRE / SCADA / AMI ; aucun client réel.",
+        },
         "mcp": mcp,
         "a2a": a2a,
         "rag": rag,

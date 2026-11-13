@@ -160,6 +160,10 @@ def inject_css() -> None:
         .section-title { font-size:1.08rem; font-weight:800; color:var(--ink); margin:6px 0 9px; letter-spacing:-.01em; }
         .section-sub { color:var(--muted); font-size:.84rem; margin-top:-5px; margin-bottom:12px; }
 
+        .data-warning { background:#FFF7E0; border:1px solid #EEDB9A; border-left:5px solid var(--amber);
+            border-radius:12px; padding:11px 15px; margin:0 0 16px; color:#6B5200;
+            font-size:.82rem; line-height:1.45; }
+
         .status { display:inline-flex; align-items:center; gap:7px; font-size:.72rem; font-weight:700;
             padding:6px 10px; border-radius:999px; background:#EAF8F4; color:#0C7B67; }
         .status.off { background:#FDECEA; color:#B23B2E; }
@@ -499,6 +503,12 @@ def page_home() -> None:
         "pour l'exploitation, la maintenance et la relation client.",
         [("MCP · 10 outils", "gold"), ("A2A · 4 agents", "teal"), ("RAG hybride", ""), ("LangGraph Reflexion", "")],
     )
+    st.markdown(
+        "<div class='data-warning'><b>⚠️ Données 100 % synthétiques.</b> "
+        "Aucune API réelle ONEE / ANRE / SCADA / AMI n'est appelée et aucun client réel n'est utilisé. "
+        "Les valeurs sont calibrées sur des ordres de grandeur publics, uniquement pour la démonstration.</div>",
+        unsafe_allow_html=True,
+    )
     kpis = cached_kpis()
     metrics_row(
         [
@@ -633,7 +643,7 @@ def page_home() -> None:
         html_table(rows)
 
     st.markdown(
-        f"<div class='footer'><span>VOLTIS v1.0 · données synthétiques · 12 novembre 2026</span>"
+        f"<div class='footer'><span>VOLTIS v1.0 · données 100 % synthétiques · aucune API réelle · 12 novembre 2026</span>"
         f"<span>Dashboard : <b>localhost:8033</b> · MCP : 8100 · A2A : 8101</span></div>",
         unsafe_allow_html=True,
     )
@@ -1468,7 +1478,7 @@ def sidebar() -> str:
         st.markdown("<div style='height:14px'></div>", unsafe_allow_html=True)
         st.markdown(
             "<div style='font-size:.64rem;color:#6F879F;line-height:1.6'>"
-            "v1.0 · 12 novembre 2026<br>Données 100 % synthétiques</div>",
+            "v1.0 · 12 novembre 2026<br>Données 100 % synthétiques<br>Aucune API réelle</div>",
             unsafe_allow_html=True,
         )
     return page

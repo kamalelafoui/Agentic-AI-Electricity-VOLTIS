@@ -8,6 +8,13 @@
     "author": "Direction Digitale & Exploitation — VOLTIS",
     "dashboard": "http://localhost:8033"
   },
+  "data": {
+    "mode": "synthetic",
+    "real_api": false,
+    "generator": "scripts/build_data.py",
+    "seed": 20261112,
+    "note": "Aucune API réelle ONEE / ANRE / SCADA / AMI ; aucun client réel."
+  },
   "mcp": {
     "schema": "volt-is.mcp/1.0",
     "server": {
@@ -1989,7 +1996,7 @@
   ],
   "benchmarks": {
     "schema": "volt-is.benchmark/1.0",
-    "generated_at": "2026-11-12T17:02:59",
+    "generated_at": "2026-11-13T12:39:19",
     "protocol": {
       "tasks": 5,
       "iterations": 2,
@@ -2080,7 +2087,7 @@
           "confidence": "Haute"
         },
         "gain": 2.7,
-        "elapsed_ms": 35.5,
+        "elapsed_ms": 44.4,
         "words": 438,
         "citations": 11
       },
@@ -2159,7 +2166,7 @@
           "confidence": "Haute"
         },
         "gain": 3.1,
-        "elapsed_ms": 27.9,
+        "elapsed_ms": 50.9,
         "words": 370,
         "citations": 8
       },
@@ -2238,7 +2245,7 @@
           "confidence": "Haute"
         },
         "gain": 2.9,
-        "elapsed_ms": 22.8,
+        "elapsed_ms": 33.0,
         "words": 316,
         "citations": 7
       },
@@ -2317,7 +2324,7 @@
           "confidence": "Haute"
         },
         "gain": 2.9,
-        "elapsed_ms": 68.0,
+        "elapsed_ms": 109.4,
         "words": 388,
         "citations": 11
       },
@@ -2396,7 +2403,7 @@
           "confidence": "Haute"
         },
         "gain": 3.0,
-        "elapsed_ms": 24.2,
+        "elapsed_ms": 29.8,
         "words": 295,
         "citations": 6
       }
@@ -2405,7 +2412,7 @@
       "initial": 6.48,
       "final": 9.4,
       "gain": 2.92,
-      "latency_ms": 35.7,
+      "latency_ms": 53.5,
       "citations": 8.6
     }
   }

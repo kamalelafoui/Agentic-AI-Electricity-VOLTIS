@@ -13,6 +13,12 @@
 
 ---
 
+> ⚠️ **Données 100 % synthétiques.** Aucune API réelle ONEE / ANRE / SCADA / AMI
+> n'est appelée, aucun client réel n'est utilisé. Les valeurs sont calibrées sur
+> des ordres de grandeur publics. Voir [`DATA_DISCLAIMER.md`](DATA_DISCLAIMER.md).
+
+---
+
 ## 🎯 En 30 secondes
 
 VOLTIS répond à des questions métier sur le réseau électrique en combinant **données structurées**, **procédures internes** et **agents spécialisés**. Chaque réponse est **chiffrée**, **sourcée**, **notée** et **traçable**.
@@ -203,7 +209,7 @@ URL        : http://127.0.0.1:8100/sse
 | T5 — Pertes réseau | 6,5 | 9,5 | +3,0 |
 | **Moyenne** | **6,48** | **9,40** | **+2,92** |
 
-Latence moyenne : **35,7 ms** · **8,6 citations/réponse**.
+Latence moyenne : **≈ 50 ms** · **8,6 citations/réponse**.
 
 ---
 

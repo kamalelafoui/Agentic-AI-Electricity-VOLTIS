@@ -522,7 +522,7 @@
             "pinned": false,
             "template": {
               "_frontend_node_flow_id": {
-                "value": "4965dd18-f86e-4689-a7ae-9de2cf18a9fc"
+                "value": "4e67b017-0788-4a57-a715-dd596a3e45a0"
               },
               "_frontend_node_folder_id": {
                 "value": "ba3e2628-1f96-4382-9c4b-60a7a0f17fd7"
@@ -792,7 +792,7 @@
             "pinned": false,
             "template": {
               "_frontend_node_flow_id": {
-                "value": "4965dd18-f86e-4689-a7ae-9de2cf18a9fc"
+                "value": "4e67b017-0788-4a57-a715-dd596a3e45a0"
               },
               "_frontend_node_folder_id": {
                 "value": "ba3e2628-1f96-4382-9c4b-60a7a0f17fd7"
@@ -1733,7 +1733,7 @@
   },
   "description": "VOLTIS — hub agentique pour le secteur électrique : MCP (10 outils), RAG hybride, A2A (4 agents), LangGraph Reflexion, dashboard Streamlit 8033 et Docker.",
   "endpoint_name": "volt-is-electricity",
-  "id": "4965dd18-f86e-4689-a7ae-9de2cf18a9fc",
+  "id": "4e67b017-0788-4a57-a715-dd596a3e45a0",
   "is_component": false,
   "last_tested_version": "1.7.0",
   "name": "Agentic_AI_Electricity_VOLTIS",
@@ -1751,6 +1751,13 @@
     "version": "1.0.0",
     "date": "12 novembre 2026",
     "dashboard": "http://localhost:8033",
+    "data": {
+      "mode": "synthetic",
+      "real_api": false,
+      "generator": "scripts/build_data.py",
+      "seed": 20261112,
+      "note": "Aucune API réelle ONEE / ANRE / SCADA / AMI ; aucun client réel."
+    },
     "mcp": {
       "server": "volt-is-grid-mcp",
       "url": "http://127.0.0.1:8100/sse",
@@ -1805,7 +1812,7 @@
       "final": 9.4,
       "gain": 2.92,
       "citations_per_answer": 8.6,
-      "latency_ms": 35.7
+      "latency_ms": 50.0
     },
     "links": {
       "github": "https://github.com/kamalelafoui/Agentic-AI-Electricity-VOLTIS",

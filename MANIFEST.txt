@@ -7,6 +7,7 @@ RACINE
   README.md                       Guide de démarrage, architecture, endpoints, benchmark
   LIVRABLES.md                    Correspondance critères / preuves / checklist
   GITHUB.md                       Publication et mise à jour du dépôt GitHub
+  DATA_DISCLAIMER.md              Provenance des données : 100 % simulées, aucune API réelle
   Agentic_AI_Electricity_VOLTIS.json  Workflow Langflow final (MCP + RAG + notes A2A/Reflexion)
   MANIFEST.txt                    Ce fichier
   LICENSE                         Licence MIT

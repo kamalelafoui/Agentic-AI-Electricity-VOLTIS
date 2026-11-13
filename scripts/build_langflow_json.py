@@ -280,6 +280,13 @@ def main() -> None:
         "version": "1.0.0",
         "date": "12 novembre 2026",
         "dashboard": "http://localhost:8033",
+        "data": {
+            "mode": "synthetic",
+            "real_api": False,
+            "generator": "scripts/build_data.py",
+            "seed": 20261112,
+            "note": "Aucune API réelle ONEE / ANRE / SCADA / AMI ; aucun client réel.",
+        },
         "mcp": {
             "server": "volt-is-grid-mcp",
             "url": "http://127.0.0.1:8100/sse",
@@ -319,7 +326,7 @@ def main() -> None:
             "final": 9.40,
             "gain": 2.92,
             "citations_per_answer": 8.6,
-            "latency_ms": 35.7,
+            "latency_ms": 50.0,
         },
         "links": {
             "github": "https://github.com/kamalelafoui/Agentic-AI-Electricity-VOLTIS",

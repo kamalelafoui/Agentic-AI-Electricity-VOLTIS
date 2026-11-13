@@ -423,6 +423,15 @@ def build() -> Path:
             "Le corpus est volontairement court (12 documents) pour rester démontrable et auditable.",
         ],
     )
+    callout(
+        doc,
+        "Aucune API réelle n'est utilisée",
+        "Les données sont produites par scripts/build_data.py avec la graine 20261112. "
+        "Aucun appel à ONEE, ANRE, MASEN, SCADA, AMI ou à un CRM réel n'est effectué. "
+        "Les valeurs sont calibrées sur des ordres de grandeur publics, pour la démonstration uniquement. "
+        "Le détail de la provenance et la procédure de branchement d'API réelles figurent dans DATA_DISCLAIMER.md.",
+        "warning",
+    )
 
     # ------------------------------------------------------------------ #
     # 5. LangGraph
@@ -1024,7 +1033,7 @@ docker compose down""",
     bullets(
         doc,
         [
-            "Pas de connexion temps réel au SCADA ni aux compteurs communicants.",
+            "Pas de connexion temps réel au SCADA ni aux compteurs communicants ; aucune API réelle n'est appelée.",
             "Pas de modèle de prévision entraîné sur plusieurs années.",
             "Pas de base vectorielle : le retrieval TF-IDF reste lexical.",
             "Pas d'authentification ni de gestion multi-utilisateurs.",

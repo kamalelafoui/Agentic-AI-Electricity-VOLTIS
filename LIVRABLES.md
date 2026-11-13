@@ -41,6 +41,7 @@
 | 15 | Captures d'écran | `screenshots/*.png` | PNG |
 | 16 | Vidéo de démonstration | `videos/VOLTIS_Demo.mp4` | MP4 1 min 50 |
 | 17 | Tests | `tests/test_volt_is.py` | Python unittest |
+| 18 | Provenance des données | `DATA_DISCLAIMER.md` | Markdown |
 
 ---
 
