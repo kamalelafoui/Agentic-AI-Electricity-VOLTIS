@@ -1,0 +1,377 @@
+{
+  "schema": "volt-is.mcp/1.0",
+  "server": {
+    "name": "volt-is-grid-mcp",
+    "version": "1.0.0",
+    "description": "Serveur MCP VOLTIS exposant les données et procédures du réseau électrique.",
+    "transport": [
+      "stdio",
+      "streamable-http",
+      "sse"
+    ],
+    "endpoint": "http://127.0.0.1:8100/mcp",
+    "health": "http://127.0.0.1:8100/api/health",
+    "protocol_version": "2025-06-18"
+  },
+  "capabilities": {
+    "tools": {
+      "listChanged": true
+    },
+    "resources": {
+      "subscribe": false
+    },
+    "prompts": {}
+  },
+  "tools": [
+    {
+      "name": "get_grid_kpis",
+      "description": "KPI nationaux du réseau : consommation, pointe, clients, pertes, SAIDI, SAIFI, renouvelable.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "category": "Analytics"
+    },
+    {
+      "name": "get_region_profile",
+      "description": "Profil détaillé d'une région : consommation, pointe, clients, pertes, qualité de service.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "region_code": {
+            "type": "string",
+            "enum": [
+              "CAS",
+              "RSK",
+              "MRS",
+              "FES",
+              "TTA",
+              "SOM",
+              "ORI",
+              "BMK"
+            ]
+          }
+        },
+        "required": [
+          "region_code"
+        ]
+      },
+      "category": "Analytics"
+    },
+    {
+      "name": "get_consumption",
+      "description": "Série mensuelle de consommation pour une région ou le niveau national.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "region_code": {
+            "type": "string",
+            "default": "NATIONAL"
+          },
+          "months": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 24,
+            "default": 12
+          }
+        },
+        "required": []
+      },
+      "category": "Analytics"
+    },
+    {
+      "name": "get_production_mix",
+      "description": "Mix de production électrique national et part renouvelable.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "category": "Analytics"
+    },
+    {
+      "name": "query_outages",
+      "description": "Liste et agrège les incidents réseau (coupures) avec filtres région, statut et priorité.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "region_code": {
+            "type": "string",
+            "default": "NATIONAL"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "Tous",
+              "Résolu",
+              "En cours",
+              "Planifié"
+            ],
+            "default": "Tous"
+          },
+          "priority": {
+            "type": "string",
+            "enum": [
+              "Toutes",
+              "P1",
+              "P2",
+              "P3"
+            ],
+            "default": "Toutes"
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 50,
+            "default": 10
+          }
+        },
+        "required": []
+      },
+      "category": "Exploitation"
+    },
+    {
+      "name": "forecast_load",
+      "description": "Prévision horaire de charge, pointe, marge de réserve et niveau de risque.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "region_code": {
+            "type": "string",
+            "default": "NATIONAL"
+          },
+          "horizon_h": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 72,
+            "default": 24
+          },
+          "temperature_delta": {
+            "type": "number",
+            "minimum": -10,
+            "maximum": 15,
+            "default": 0
+          }
+        },
+        "required": []
+      },
+      "category": "Prévision"
+    },
+    {
+      "name": "simulate_bill",
+      "description": "Simule une facture d'électricité selon le segment tarifaire et la consommation mensuelle.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "segment": {
+            "type": "string",
+            "enum": [
+              "residentiel",
+              "commercial",
+              "industriel",
+              "agricole",
+              "administration"
+            ],
+            "default": "residentiel"
+          },
+          "consumption_mwh": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100000,
+            "default": 0.35
+          },
+          "region_code": {
+            "type": "string",
+            "default": "CAS"
+          }
+        },
+        "required": [
+          "segment",
+          "consumption_mwh"
+        ]
+      },
+      "category": "Commercial"
+    },
+    {
+      "name": "search_knowledge",
+      "description": "Recherche hybride (BM25 + TF-IDF) dans les procédures et référentiels internes.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "minLength": 3
+          },
+          "top_k": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 8,
+            "default": 4
+          }
+        },
+        "required": [
+          "query"
+        ]
+      },
+      "category": "RAG"
+    },
+    {
+      "name": "recommend_energy_savings",
+      "description": "Plan d'économies d'énergie personnalisé pour un client suivi.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "customer_id": {
+            "type": "string",
+            "enum": [
+              "CLI-001",
+              "CLI-002",
+              "CLI-003",
+              "CLI-004",
+              "CLI-005",
+              "CLI-006",
+              "CLI-007",
+              "CLI-008",
+              "CLI-009",
+              "CLI-010",
+              "CLI-011",
+              "CLI-012",
+              "CLI-013",
+              "CLI-014",
+              "CLI-015",
+              "CLI-016",
+              "CLI-017",
+              "CLI-018",
+              "CLI-019",
+              "CLI-020",
+              "CLI-021",
+              "CLI-022",
+              "CLI-023",
+              "CLI-024"
+            ]
+          }
+        },
+        "required": [
+          "customer_id"
+        ]
+      },
+      "category": "Commercial"
+    },
+    {
+      "name": "get_service_quality",
+      "description": "Indicateurs réglementaires de continuité et de qualité pour une région.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "region_code": {
+            "type": "string",
+            "default": "NATIONAL"
+          }
+        },
+        "required": []
+      },
+      "category": "Qualité"
+    }
+  ],
+  "resources": [
+    {
+      "uri": "volt-is://corpus/index",
+      "name": "Index documentaire",
+      "mimeType": "application/json"
+    },
+    {
+      "uri": "volt-is://grid/kpis",
+      "name": "KPI réseau",
+      "mimeType": "application/json"
+    },
+    {
+      "uri": "volt-is://grid/regions",
+      "name": "Régions et profils",
+      "mimeType": "application/json"
+    }
+  ],
+  "prompts": [
+    {
+      "name": "diagnostic_incident",
+      "description": "Analyser un incident et proposer un plan d'action priorisé.",
+      "arguments": [
+        "incident_id",
+        "region_code"
+      ]
+    },
+    {
+      "name": "briefing_dispatching",
+      "description": "Produire le briefing de pointe du jour avec risques et actions.",
+      "arguments": [
+        "region_code",
+        "temperature_delta"
+      ]
+    }
+  ],
+  "project": {
+    "name": "VOLTIS",
+    "tagline": "Agentic AI for the Electricity Sector",
+    "version": "1.0.0",
+    "owner": "Direction Digitale & Exploitation",
+    "date": "2026-11-12"
+  },
+  "usage": {
+    "start": "python main.py mcp",
+    "docker": "docker compose up mcp",
+    "health": "curl http://127.0.0.1:8100/api/health",
+    "tools_list": "curl http://127.0.0.1:8100/api/tools",
+    "call_example": {
+      "method": "POST",
+      "url": "http://127.0.0.1:8100/api/tool",
+      "body": {
+        "tool": "forecast_load",
+        "arguments": {
+          "region_code": "CAS",
+          "horizon_h": 24,
+          "temperature_delta": 5
+        }
+      }
+    },
+    "jsonrpc_example": {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "method": "tools/call",
+      "params": {
+        "name": "get_grid_kpis",
+        "arguments": {}
+      }
+    }
+  },
+  "examples": [
+    {
+      "question": "Quel est le mix national ?",
+      "tool": "get_production_mix",
+      "arguments": {}
+    },
+    {
+      "question": "Incidents à Casablanca ?",
+      "tool": "query_outages",
+      "arguments": {
+        "region_code": "CAS",
+        "limit": 5
+      }
+    },
+    {
+      "question": "Facture d'un industriel à 250 MWh ?",
+      "tool": "simulate_bill",
+      "arguments": {
+        "segment": "industriel",
+        "consumption_mwh": 250
+      }
+    },
+    {
+      "question": "Risque demain à 19 h avec +5 °C ?",
+      "tool": "forecast_load",
+      "arguments": {
+        "region_code": "CAS",
+        "temperature_delta": 5
+      }
+    }
+  ]
+}

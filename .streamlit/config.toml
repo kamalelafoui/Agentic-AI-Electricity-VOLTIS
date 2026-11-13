@@ -1,0 +1,15 @@
+[theme]
+primaryColor = "#F5B301"
+backgroundColor = "#F4F7FB"
+secondaryBackgroundColor = "#FFFFFF"
+textColor = "#12263F"
+font = "sans serif"
+
+[server]
+port = 8033
+headless = true
+fileWatcherType = "poll"
+maxUploadSize = 50
+
+[browser]
+gatherUsageStats = false

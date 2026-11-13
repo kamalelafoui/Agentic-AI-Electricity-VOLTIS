@@ -1,0 +1,211 @@
+{
+  "schema": "volt-is.architecture/1.0",
+  "project": "VOLTIS — Agentic AI for the Electricity Sector",
+  "style": "Hub agentique interopérable (MCP + A2A + RAG + LangGraph)",
+  "principles": [
+    "Séparer les protocoles (MCP pour les outils, A2A pour les agents)",
+    "Un hub central qui découvre les capacités sans couplage fort",
+    "Toute réponse chiffrée est sourcée et traçable",
+    "Boucle Reflexion avant toute réponse finale",
+    "Repli local si un service est indisponible",
+    "Aucune donnée personnelle réelle"
+  ],
+  "layers": [
+    {
+      "id": "experience",
+      "label": "Expérience",
+      "components": [
+        "Dashboard Streamlit 8033",
+        "Formulaire de requête",
+        "Graphiques & KPI",
+        "Documentation"
+      ]
+    },
+    {
+      "id": "orchestration",
+      "label": "Orchestration",
+      "components": [
+        "LangGraph StateGraph",
+        "Planner",
+        "Critic / Refiner",
+        "A2A Orchestrator 8101"
+      ]
+    },
+    {
+      "id": "agents",
+      "label": "Agents spécialisés",
+      "components": [
+        "Grid Analyst 8102",
+        "Outage Inspector 8103",
+        "Billing Advisor 8104",
+        "Forecast Agent 8105"
+      ]
+    },
+    {
+      "id": "protocols",
+      "label": "Protocoles",
+      "components": [
+        "MCP JSON-RPC 2.0 8100",
+        "A2A 0.3 8101-8105",
+        "AgentCards",
+        "correlation_id"
+      ]
+    },
+    {
+      "id": "data",
+      "label": "Données & connaissances",
+      "components": [
+        "12 documents / 58 chunks",
+        "RAG hybride BM25 + TF-IDF",
+        "CSV/JSON synthétiques",
+        "Journal A2A JSONL"
+      ]
+    },
+    {
+      "id": "infrastructure",
+      "label": "Infrastructure",
+      "components": [
+        "Docker",
+        "docker-compose",
+        "Healthchecks",
+        "Variables d'environnement"
+      ]
+    }
+  ],
+  "services": [
+    {
+      "name": "dashboard",
+      "port": 8033,
+      "image": "volt-is:1.0",
+      "command": "python main.py dashboard",
+      "depends_on": [
+        "mcp",
+        "a2a"
+      ]
+    },
+    {
+      "name": "mcp",
+      "port": 8100,
+      "image": "volt-is:1.0",
+      "command": "python main.py mcp",
+      "health": "/api/health"
+    },
+    {
+      "name": "a2a",
+      "ports": [
+        8101,
+        8102,
+        8103,
+        8104,
+        8105
+      ],
+      "image": "volt-is:1.0",
+      "command": "python main.py a2a",
+      "health": "/health"
+    }
+  ],
+  "data_flows": [
+    {
+      "from": "dashboard",
+      "to": "langgraph",
+      "payload": "question + contexte",
+      "protocol": "in-process"
+    },
+    {
+      "from": "langgraph",
+      "to": "mcp",
+      "payload": "tool_name + arguments",
+      "protocol": "HTTP/JSON-RPC"
+    },
+    {
+      "from": "langgraph",
+      "to": "a2a",
+      "payload": "tâche + correlation_id",
+      "protocol": "HTTP/JSON"
+    },
+    {
+      "from": "a2a",
+      "to": "agents",
+      "payload": "message/send",
+      "protocol": "A2A 0.3"
+    },
+    {
+      "from": "agents",
+      "to": "data",
+      "payload": "lecture KPI/corpus",
+      "protocol": "Python"
+    },
+    {
+      "from": "dashboard",
+      "to": "user",
+      "payload": "réponse + sources + scores",
+      "protocol": "HTTPS/SSE"
+    }
+  ],
+  "adr": [
+    {
+      "id": "ADR-001",
+      "decision": "MCP pour les outils",
+      "why": "Découverte automatique et schémas JSON standardisés."
+    },
+    {
+      "id": "ADR-002",
+      "decision": "A2A pour les agents",
+      "why": "Délégation inter-agents, AgentCards, traçabilité par correlation_id."
+    },
+    {
+      "id": "ADR-003",
+      "decision": "RAG hybride sans vector DB",
+      "why": "Démo reproductible hors ligne, latence faible, pas de dépendance externe."
+    },
+    {
+      "id": "ADR-004",
+      "decision": "LangGraph pour l'orchestration",
+      "why": "Graphe explicite, état typé, boucle conditionnelle Reflexion."
+    },
+    {
+      "id": "ADR-005",
+      "decision": "Streamlit pour le dashboard",
+      "why": "Livraison rapide, formulaires, graphiques Plotly, mode local."
+    }
+  ],
+  "validation_criteria": [
+    {
+      "criterion": "Interopérabilité",
+      "proof": "MCP JSON-RPC + A2A HTTP + AgentCards ; dashboard appelle les deux."
+    },
+    {
+      "criterion": "Agentic RAG",
+      "proof": "Planner + retriever multi-étapes + vérification + citations + critique."
+    },
+    {
+      "criterion": "Collaboration ≥ 2 agents",
+      "proof": "Orchestrateur A2A délègue à 2-3 agents en parallèle."
+    },
+    {
+      "criterion": "Auto-réflexion",
+      "proof": "Boucle Writer → Critic → Refiner avec scores avant/après."
+    },
+    {
+      "criterion": "Architecture",
+      "proof": "Schéma du hub, 3 couches, ports et flux documentés."
+    },
+    {
+      "criterion": "Documentation",
+      "proof": "DOCX final, README, guide, 5 AgentCards complètes."
+    },
+    {
+      "criterion": "Démonstration",
+      "proof": "Dashboard live 8033 + scénario de bout en bout + captures."
+    }
+  ],
+  "ports": {
+    "dashboard": 8033,
+    "mcp": 8100,
+    "a2a_orchestrator": 8101,
+    "grid-analyst": 8102,
+    "outage-inspector": 8103,
+    "billing-advisor": 8104,
+    "forecast-agent": 8105
+  }
+}

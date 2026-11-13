@@ -1,0 +1,73 @@
+{
+  "name": "Billing Advisor",
+  "description": "Simule les factures, explique les tarifs et propose des économies d'énergie.",
+  "url": "http://127.0.0.1:8104",
+  "version": "1.0.0",
+  "protocolVersion": "0.3.0",
+  "provider": {
+    "organization": "VOLTIS",
+    "url": "http://localhost:8033"
+  },
+  "documentationUrl": "http://localhost:8033/?page=a2a&agent=billing-advisor",
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "stateTransitionHistory": true
+  },
+  "defaultInputModes": [
+    "text/plain",
+    "application/json"
+  ],
+  "defaultOutputModes": [
+    "text/markdown",
+    "application/json"
+  ],
+  "skills": [
+    {
+      "id": "billing-advisor.main",
+      "name": "Billing Advisor",
+      "description": "Simule les factures, explique les tarifs et propose des économies d'énergie.",
+      "tags": [
+        "facture",
+        "tarif",
+        "prix",
+        "client",
+        "économies",
+        "kwh"
+      ],
+      "examples": [
+        "Simule la facture d'un industriel à 250 MWh.",
+        "Comment réduire la facture du client CLI-001 ?",
+        "Explique les tranches du tarif résidentiel."
+      ],
+      "inputModes": [
+        "text/plain"
+      ],
+      "outputModes": [
+        "text/markdown",
+        "application/json"
+      ]
+    }
+  ],
+  "metadata": {
+    "agent_id": "billing-advisor",
+    "tools": [
+      "simulate_bill",
+      "recommend_energy_savings"
+    ],
+    "keywords": [
+      "facture",
+      "tarif",
+      "prix",
+      "client",
+      "économies",
+      "kwh",
+      "mad",
+      "consommation",
+      "abonnement"
+    ],
+    "port": 8104,
+    "hub": "VOLTIS Agentic Hub",
+    "owner": "Direction Digitale & Exploitation"
+  }
+}

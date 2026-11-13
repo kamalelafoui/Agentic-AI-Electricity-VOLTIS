@@ -1,0 +1,97 @@
+{
+  "residentiel": {
+    "label": "Résidentiel (BT)",
+    "currency": "MAD",
+    "tiers": [
+      {
+        "min_kwh": 0,
+        "max_kwh": 100,
+        "price_kwh": 0.901
+      },
+      {
+        "min_kwh": 101,
+        "max_kwh": 200,
+        "price_kwh": 1.073
+      },
+      {
+        "min_kwh": 201,
+        "max_kwh": 300,
+        "price_kwh": 1.212
+      },
+      {
+        "min_kwh": 301,
+        "max_kwh": 500,
+        "price_kwh": 1.345
+      },
+      {
+        "min_kwh": 501,
+        "max_kwh": null,
+        "price_kwh": 1.512
+      }
+    ],
+    "fixed_fee": 26.0,
+    "vat_pct": 14.0,
+    "municipal_tax_pct": 7.0
+  },
+  "commercial": {
+    "label": "Commercial & services (MT/BT)",
+    "currency": "MAD",
+    "tiers": [
+      {
+        "min_kwh": 0,
+        "max_kwh": null,
+        "price_kwh": 1.42
+      }
+    ],
+    "fixed_fee": 145.0,
+    "vat_pct": 20.0,
+    "municipal_tax_pct": 0.0
+  },
+  "industriel": {
+    "label": "Industriel (MT, > 1 GWh/an)",
+    "currency": "MAD",
+    "tiers": [
+      {
+        "min_kwh": 0,
+        "max_kwh": 200000,
+        "price_kwh": 1.18
+      },
+      {
+        "min_kwh": 200001,
+        "max_kwh": null,
+        "price_kwh": 0.985
+      }
+    ],
+    "fixed_fee": 2400.0,
+    "vat_pct": 20.0,
+    "municipal_tax_pct": 0.0
+  },
+  "agricole": {
+    "label": "Agricole (BT, pompage)",
+    "currency": "MAD",
+    "tiers": [
+      {
+        "min_kwh": 0,
+        "max_kwh": null,
+        "price_kwh": 0.83
+      }
+    ],
+    "fixed_fee": 40.0,
+    "vat_pct": 7.0,
+    "municipal_tax_pct": 0.0
+  },
+  "administration": {
+    "label": "Administration & éclairage public",
+    "currency": "MAD",
+    "tiers": [
+      {
+        "min_kwh": 0,
+        "max_kwh": null,
+        "price_kwh": 1.29
+      }
+    ],
+    "fixed_fee": 90.0,
+    "vat_pct": 20.0,
+    "municipal_tax_pct": 0.0
+  }
+}

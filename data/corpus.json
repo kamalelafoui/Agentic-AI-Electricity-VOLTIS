@@ -1,0 +1,503 @@
+{
+  "documents": [
+    {
+      "doc_id": "DOC-DELESTAGE",
+      "title": "Procédure de délestage et de gestion des pointes",
+      "category": "Exploitation",
+      "version": "3.2",
+      "date": "2026-03-18",
+      "owner": "Direction Exploitation Réseau",
+      "summary": "Seuils de déclenchement, ordre de priorité des départs et communication aux clients lors d'une pointe de charge.",
+      "keywords": [
+        "délestage",
+        "pointe",
+        "charge",
+        "priorité",
+        "départ",
+        "margin",
+        "réserve"
+      ],
+      "chunks": [
+        {
+          "chunk_id": "DOC-DELESTAGE-C01",
+          "text": "Le délestage est déclenché lorsque la marge de réserve nationale descend sous 4 % de la pointe prévisionnelle pendant plus de quinze minutes, ou lorsqu'un incident affecte deux postes sources simultanément.",
+          "tokens": 31
+        },
+        {
+          "chunk_id": "DOC-DELESTAGE-C02",
+          "text": "L'ordre de priorité des départs est le suivant : éclairage public et trafic, hôpitaux et cliniques, stations de pompage d'eau potable, installations industrielles critiques, puis zones résidentielles. Chaque départ possède un code de priorité P1, P2 ou P3.",
+          "tokens": 38
+        },
+        {
+          "chunk_id": "DOC-DELESTAGE-C03",
+          "text": "Avant tout délestage, le dispatcher vérifie la prévision J+1, la disponibilité des groupes, les importations et les consignes de sécurité. La décision est tracée dans le registre des manœuvres avec un horodatage à la seconde.",
+          "tokens": 35
+        },
+        {
+          "chunk_id": "DOC-DELESTAGE-C04",
+          "text": "La communication client est déclenchée dans les dix minutes : SMS aux abonnés concernés, message sur le portail et information de la presse régionale. Un délestage ne doit pas dépasser 90 minutes consécutives pour un même départ résidentiel.",
+          "tokens": 38
+        },
+        {
+          "chunk_id": "DOC-DELESTAGE-C05",
+          "text": "Le retour à la normale se fait progressivement, par blocs de 15 MW, afin d'éviter un appel de charge brutal et un risque de surtension en bout de réseau.",
+          "tokens": 29
+        }
+      ]
+    },
+    {
+      "doc_id": "DOC-MAINT-TR",
+      "title": "Guide de maintenance préventive des transformateurs MT/BT",
+      "category": "Maintenance",
+      "version": "5.0",
+      "date": "2026-01-22",
+      "owner": "Direction Technique",
+      "summary": "Périodicités, contrôles d'huile, thermographie infrarouge et critères de remplacement des transformateurs de distribution.",
+      "keywords": [
+        "transformateur",
+        "maintenance",
+        "huile",
+        "thermographie",
+        "charge",
+        "température",
+        "MT",
+        "BT"
+      ],
+      "chunks": [
+        {
+          "chunk_id": "DOC-MAINT-TR-C01",
+          "text": "Un transformateur de distribution fait l'objet d'une visite visuelle semestrielle, d'une thermographie annuelle et d'une analyse d'huile tous les deux ans. Les transformateurs de plus de 20 ans sont inspectés chaque trimestre.",
+          "tokens": 32
+        },
+        {
+          "chunk_id": "DOC-MAINT-TR-C02",
+          "text": "La thermographie recherche les points chauds sur les connexions, les bornes et les traversées. Un écart de plus de 15 °C entre phases impose une intervention sous 72 heures ; un point chaud supérieur à 90 °C impose une consignation immédiate.",
+          "tokens": 41
+        },
+        {
+          "chunk_id": "DOC-MAINT-TR-C03",
+          "text": "Le taux d'humidité de l'huile doit rester inférieur à 20 ppm et la rigidité diélectrique supérieure à 30 kV. Un transformateur dont la charge dépasse 85 % de sa puissance nominale pendant plus de quatre heures par jour est candidat à un renforcement.",
+          "tokens": 43
+        },
+        {
+          "chunk_id": "DOC-MAINT-TR-C04",
+          "text": "La maintenance conditionnelle s'appuie sur les capteurs de température et les compteurs communicants. Les alertes sont priorisées selon la charge, le nombre de clients impactés et la criticité du départ.",
+          "tokens": 30
+        }
+      ]
+    },
+    {
+      "doc_id": "DOC-CODE-RESEAU",
+      "title": "Code du réseau de distribution — qualité de l'onde",
+      "category": "Référentiel",
+      "version": "2.4",
+      "date": "2025-11-05",
+      "owner": "Direction Réglementation",
+      "summary": "Tensions nominales, tolérances de fréquence et de tension, taux de distorsion harmonique et règles de raccordement.",
+      "keywords": [
+        "tension",
+        "fréquence",
+        "harmonique",
+        "qualité",
+        "onde",
+        "raccordement",
+        "BT",
+        "MT",
+        "tolérance"
+      ],
+      "chunks": [
+        {
+          "chunk_id": "DOC-CODE-RESEAU-C01",
+          "text": "La tension nominale est de 220/380 V en basse tension et de 20 kV en moyenne tension. La tolérance réglementaire est de ± 7 % en BT et ± 5 % en MT, mesurée sur une moyenne de dix minutes.",
+          "tokens": 40
+        },
+        {
+          "chunk_id": "DOC-CODE-RESEAU-C02",
+          "text": "La fréquence doit rester dans une plage de ± 0,5 Hz autour de 50 Hz. Tout écart supérieur à 1 Hz pendant plus de trente secondes doit être déclaré à l'autorité de régulation.",
+          "tokens": 33
+        },
+        {
+          "chunk_id": "DOC-CODE-RESEAU-C03",
+          "text": "Le taux de distorsion harmonique total de tension ne doit pas dépasser 8 % en BT et 5 % en MT. Les installations photovoltaïques et les variateurs de vitesse doivent être équipés de filtres conformes.",
+          "tokens": 35
+        },
+        {
+          "chunk_id": "DOC-CODE-RESEAU-C04",
+          "text": "Tout nouveau raccordement de production décentralisée fait l'objet d'une étude d'impact. La puissance injectée ne peut dépasser 30 % de la puissance de court-circuit du point de raccordement sans dispositif de limitation.",
+          "tokens": 32
+        }
+      ]
+    },
+    {
+      "doc_id": "DOC-TARIFS",
+      "title": "Structure tarifaire et facturation de l'électricité",
+      "category": "Commercial",
+      "version": "4.1",
+      "date": "2026-06-30",
+      "owner": "Direction Commerciale",
+      "summary": "Tranches résidentielles, tarifs industriel et agricole, primes fixes, TVA et taxe municipale.",
+      "keywords": [
+        "tarif",
+        "facture",
+        "tranche",
+        "kWh",
+        "TVA",
+        "taxe",
+        "résidentiel",
+        "industriel",
+        "agricole"
+      ],
+      "chunks": [
+        {
+          "chunk_id": "DOC-TARIFS-C01",
+          "text": "Le tarif résidentiel est progressif par tranches de consommation mensuelle : 0,901 MAD/kWh jusqu'à 100 kWh, 1,073 MAD/kWh de 101 à 200 kWh, 1,212 MAD/kWh de 201 à 300 kWh, 1,345 MAD/kWh de 301 à 500 kWh et 1,512 MAD/kWh au-delà.",
+          "tokens": 41
+        },
+        {
+          "chunk_id": "DOC-TARIFS-C02",
+          "text": "Le tarif industriel moyenne tension comporte une prime fixe mensuelle de 2 400 MAD et un prix de l'énergie de 1,180 MAD/kWh jusqu'à 200 MWh, puis 0,985 MAD/kWh au-delà. La TVA est de 20 %.",
+          "tokens": 35
+        },
+        {
+          "chunk_id": "DOC-TARIFS-C03",
+          "text": "Le tarif agricole est de 0,830 MAD/kWh avec une prime fixe de 40 MAD et une TVA de 7 %. Le tarif commercial est de 1,420 MAD/kWh avec une prime fixe de 145 MAD.",
+          "tokens": 34
+        },
+        {
+          "chunk_id": "DOC-TARIFS-C04",
+          "text": "La facture totale additionne l'énergie consommée, la prime fixe, la TVA et, pour le résidentiel, la taxe municipale de 7 %. Les contestations doivent être déposées dans les 60 jours suivant l'émission de la facture.",
+          "tokens": 35
+        }
+      ]
+    },
+    {
+      "doc_id": "DOC-RENOUVELABLES",
+      "title": "Intégration des énergies renouvelables au réseau de distribution",
+      "category": "Technique",
+      "version": "2.1",
+      "date": "2026-04-12",
+      "owner": "Direction Stratégie & Innovation",
+      "summary": "Raccordement du solaire et de l'éolien, limites d'injection, stockage et gestion de l'intermittence.",
+      "keywords": [
+        "solaire",
+        "éolien",
+        "renouvelable",
+        "raccordement",
+        "injection",
+        "stockage",
+        "intermittence",
+        "courbe de charge"
+      ],
+      "chunks": [
+        {
+          "chunk_id": "DOC-RENOUVELABLES-C01",
+          "text": "La production solaire photovoltaïque suit une courbe en cloche centrée sur 13 h ; l'éolien est plus variable et peut produire la nuit. La combinaison des deux réduit la pointe de midi mais pas nécessairement la pointe du soir.",
+          "tokens": 39
+        },
+        {
+          "chunk_id": "DOC-RENOUVELABLES-C02",
+          "text": "Le raccordement d'une installation de production décentralisée nécessite une étude de flux de puissance, une vérification du plan de protection et un compteur bidirectionnel. L'injection est limitée à 30 % de la puissance de court-circuit du départ.",
+          "tokens": 37
+        },
+        {
+          "chunk_id": "DOC-RENOUVELABLES-C03",
+          "text": "Le stockage par batteries est mobilisé en priorité pour lisser les rampes de 17 h à 21 h. Une capacité de 100 MW / 200 MWh permet de couvrir environ 35 minutes de la pointe nationale.",
+          "tokens": 36
+        },
+        {
+          "chunk_id": "DOC-RENOUVELABLES-C04",
+          "text": "Le taux de pénétration renouvelable est calculé comme la production renouvelable divisée par la consommation totale. Il ne doit pas être confondu avec la part de capacité installée.",
+          "tokens": 28
+        }
+      ]
+    },
+    {
+      "doc_id": "DOC-INCIDENTS",
+      "title": "Gestion des incidents et indicateurs de continuité",
+      "category": "Exploitation",
+      "version": "3.0",
+      "date": "2026-02-09",
+      "owner": "Direction Exploitation Réseau",
+      "summary": "Classification P1/P2/P3, calcul du SAIDI, du SAIFI et du MTTR, escalade et retour d'expérience.",
+      "keywords": [
+        "incident",
+        "SAIDI",
+        "SAIFI",
+        "MTTR",
+        "P1",
+        "P2",
+        "P3",
+        "coupure",
+        "continuité",
+        "escalade"
+      ],
+      "chunks": [
+        {
+          "chunk_id": "DOC-INCIDENTS-C01",
+          "text": "Un incident P1 affecte plus de 8 000 clients ou dure plus de quatre heures ; un incident P2 affecte entre 1 500 et 8 000 clients ; un incident P3 est local et affecte moins de 1 500 clients. La priorité détermine le délai de prise en charge et le niveau d'escalade.",
+          "tokens": 53
+        },
+        {
+          "chunk_id": "DOC-INCIDENTS-C02",
+          "text": "Le SAIDI est la durée moyenne de coupure par client sur une période, exprimée en minutes. Le SAIFI est le nombre moyen de coupures par client. Le MTTR est la durée moyenne de réparation des incidents résolus.",
+          "tokens": 37
+        },
+        {
+          "chunk_id": "DOC-INCIDENTS-C03",
+          "text": "Chaque incident fait l'objet d'une fiche de retour d'expérience dans les cinq jours ouvrés. Les causes récurrentes sont analysées mensuellement et alimentent le plan de maintenance préventive.",
+          "tokens": 27
+        },
+        {
+          "chunk_id": "DOC-INCIDENTS-C04",
+          "text": "La compensation client est automatique lorsque la coupure dépasse 4 heures pour un client industriel ou 6 heures pour un client résidentiel, sous réserve d'un dossier complet.",
+          "tokens": 27
+        }
+      ]
+    },
+    {
+      "doc_id": "DOC-AMI",
+      "title": "Compteurs communicants et télérelève (AMI)",
+      "category": "Digital",
+      "version": "1.8",
+      "date": "2026-05-20",
+      "owner": "Direction Digital & SI",
+      "summary": "Architecture AMI, collecte toutes les 15 minutes, supervision des pertes et cybersécurité des concentrateurs.",
+      "keywords": [
+        "compteur",
+        "AMI",
+        "télérelève",
+        "données",
+        "pertes",
+        "concentrateur",
+        "cybersécurité",
+        "15 minutes"
+      ],
+      "chunks": [
+        {
+          "chunk_id": "DOC-AMI-C01",
+          "text": "Le compteur communicant transmet la courbe de charge toutes les 15 minutes via un concentrateur de quartier. Les données sont agrégées au niveau du départ et du poste source.",
+          "tokens": 29
+        },
+        {
+          "chunk_id": "DOC-AMI-C02",
+          "text": "La télérelève permet de détecter les pertes non techniques : branchements illicites, compteurs trafiqués, erreurs de relevé. Un écart supérieur à 3 % entre l'énergie injectée et l'énergie facturée déclenche une analyse.",
+          "tokens": 32
+        },
+        {
+          "chunk_id": "DOC-AMI-C03",
+          "text": "Les concentrateurs sont segmentés sur un VLAN dédié et communiquent avec la plateforme de collecte via TLS mutuel. Les mots de passe par défaut sont interdits et les firmwares sont signés.",
+          "tokens": 31
+        },
+        {
+          "chunk_id": "DOC-AMI-C04",
+          "text": "La disponibilité de la chaîne de collecte doit être supérieure à 98 %. Une panne de concentrateur est traitée comme un incident P2 si elle concerne plus de 500 compteurs.",
+          "tokens": 30
+        }
+      ]
+    },
+    {
+      "doc_id": "DOC-SECURITE",
+      "title": "Sécurité des chantiers et consignations électriques",
+      "category": "Sécurité",
+      "version": "6.3",
+      "date": "2026-01-05",
+      "owner": "Direction HSE",
+      "summary": "Habilitations, EPI, procédure de consignation et règles d'intervention à proximité des ouvrages sous tension.",
+      "keywords": [
+        "sécurité",
+        "consignation",
+        "EPI",
+        "habilitation",
+        "chantier",
+        "tension",
+        "HSE"
+      ],
+      "chunks": [
+        {
+          "chunk_id": "DOC-SECURITE-C01",
+          "text": "Toute intervention sur un ouvrage électrique exige une habilitation valide, une analyse de risques et un plan de prévention. Les travaux sous tension sont réservés aux équipes habilitées BT ou HT.",
+          "tokens": 31
+        },
+        {
+          "chunk_id": "DOC-SECURITE-C02",
+          "text": "La consignation suit quatre étapes : séparation, condamnation, vérification d'absence de tension et mise à la terre. Un cadenas personnel est apposé sur chaque organe de coupure.",
+          "tokens": 27
+        },
+        {
+          "chunk_id": "DOC-SECURITE-C03",
+          "text": "Les EPI obligatoires comprennent le casque, les chaussures de sécurité, les gants isolants adaptés au niveau de tension, l'écran facial et la tenue ignifugée.",
+          "tokens": 24
+        },
+        {
+          "chunk_id": "DOC-SECURITE-C04",
+          "text": "Un permis de travail est exigé pour toute intervention de plus de deux heures ou nécessitant l'ouverture d'une tranchée. Le chef de chantier réalise un briefing sécurité quotidien.",
+          "tokens": 28
+        }
+      ]
+    },
+    {
+      "doc_id": "DOC-CLIENT",
+      "title": "Relation client, réclamations et compensation",
+      "category": "Commercial",
+      "version": "2.6",
+      "date": "2026-07-14",
+      "owner": "Direction Commerciale",
+      "summary": "Canaux de contact, délais de réponse, procédure de réclamation et gestes commerciaux.",
+      "keywords": [
+        "client",
+        "réclamation",
+        "délai",
+        "compensation",
+        "facture",
+        "coupure",
+        "satisfaction"
+      ],
+      "chunks": [
+        {
+          "chunk_id": "DOC-CLIENT-C01",
+          "text": "Le client peut déposer une réclamation par téléphone, portail web, agence ou application mobile. Un accusé de réception avec numéro de dossier est envoyé sous 24 heures.",
+          "tokens": 27
+        },
+        {
+          "chunk_id": "DOC-CLIENT-C02",
+          "text": "Le délai de réponse est de 5 jours ouvrés pour une réclamation simple et de 15 jours pour une réclamation complexe nécessitant une enquête terrain.",
+          "tokens": 25
+        },
+        {
+          "chunk_id": "DOC-CLIENT-C03",
+          "text": "Une coupure de plus de 6 heures non planifiée ouvre droit à une compensation automatique de 150 MAD pour un client résidentiel et de 1 500 MAD pour un client industriel, plafonnée à 5 % de la facture annuelle.",
+          "tokens": 39
+        },
+        {
+          "chunk_id": "DOC-CLIENT-C04",
+          "text": "La satisfaction client est mesurée trimestriellement par enquête téléphonique et par le taux de réclamation réouverte. Un dossier rouvert plus de deux fois est escaladé au responsable régional.",
+          "tokens": 28
+        }
+      ]
+    },
+    {
+      "doc_id": "DOC-CYBER",
+      "title": "Cybersécurité des systèmes SCADA et OT",
+      "category": "Cybersécurité",
+      "version": "3.4",
+      "date": "2026-08-02",
+      "owner": "RSSI",
+      "summary": "Segmentation IT/OT, authentification multifacteur, journalisation, gestion des correctifs et réponse à incident.",
+      "keywords": [
+        "cybersécurité",
+        "SCADA",
+        "OT",
+        "MFA",
+        "segmentation",
+        "journal",
+        "incident",
+        "correctif"
+      ],
+      "chunks": [
+        {
+          "chunk_id": "DOC-CYBER-C01",
+          "text": "Le réseau OT est segmenté du réseau IT par un pare-feu industriel et une zone démilitarisée. Les flux autorisés sont documentés dans une matrice de flux revue chaque semestre.",
+          "tokens": 29
+        },
+        {
+          "chunk_id": "DOC-CYBER-C02",
+          "text": "L'accès aux postes de conduite exige une authentification multifacteur et une bastion d'administration. Les comptes génériques sont interdits.",
+          "tokens": 18
+        },
+        {
+          "chunk_id": "DOC-CYBER-C03",
+          "text": "Les journaux des automates, des concentrateurs et des serveurs SCADA sont centralisés pendant au moins douze mois. Toute modification de configuration est signée et horodatée.",
+          "tokens": 25
+        },
+        {
+          "chunk_id": "DOC-CYBER-C04",
+          "text": "Un incident de cybersécurité doit être signalé au RSSI dans l'heure. Le plan de réponse prévoit l'isolement du segment, la conservation des preuves et une communication encadrée.",
+          "tokens": 27
+        }
+      ]
+    },
+    {
+      "doc_id": "DOC-PREVISION",
+      "title": "Prévision de la charge à J+1 et gestion des pointes",
+      "category": "Exploitation",
+      "version": "2.9",
+      "date": "2026-09-11",
+      "owner": "Direction Prévision & Dispatching",
+      "summary": "Modèle de prévision, variables météo, événements, seuils d'alerte et marge de réserve.",
+      "keywords": [
+        "prévision",
+        "charge",
+        "pointe",
+        "météo",
+        "J+1",
+        "réserve",
+        "alerte",
+        "température"
+      ],
+      "chunks": [
+        {
+          "chunk_id": "DOC-PREVISION-C01",
+          "text": "La prévision J+1 est produite chaque jour à 11 h à partir des historiques de charge, de la météo (température, humidité, vent) et du calendrier (jours fériés, événements, ramadan).",
+          "tokens": 29
+        },
+        {
+          "chunk_id": "DOC-PREVISION-C02",
+          "text": "Une température maximale supérieure à 34 °C augmente la pointe de 6 à 9 % selon la région. Une baisse de 5 °C en hiver augmente la pointe de 4 à 7 %.",
+          "tokens": 33
+        },
+        {
+          "chunk_id": "DOC-PREVISION-C03",
+          "text": "Le seuil d'alerte est atteint lorsque la pointe prévisionnelle dépasse 92 % de la capacité disponible. Le seuil critique est de 97 %. Entre 92 % et 97 %, le dispatcher active les réserves et prépare un plan de délestage.",
+          "tokens": 40
+        },
+        {
+          "chunk_id": "DOC-PREVISION-C04",
+          "text": "La marge de réserve minimale est de 8 % de la pointe prévisionnelle. Elle peut être abaissée à 4 % pendant une heure maximum, avec validation du directeur d'exploitation.",
+          "tokens": 29
+        }
+      ]
+    },
+    {
+      "doc_id": "DOC-QUALITE-ANRE",
+      "title": "Qualité de service et obligations réglementaires",
+      "category": "Réglementation",
+      "version": "1.5",
+      "date": "2026-10-01",
+      "owner": "Direction Réglementation",
+      "summary": "Indicateurs suivis par l'autorité de régulation, seuils, pénalités et publication des résultats.",
+      "keywords": [
+        "ANRE",
+        "régulation",
+        "qualité",
+        "SAIDI",
+        "SAIFI",
+        "pénalité",
+        "publication",
+        "seuil"
+      ],
+      "chunks": [
+        {
+          "chunk_id": "DOC-QUALITE-ANRE-C01",
+          "text": "L'autorité de régulation suit le SAIDI, le SAIFI, le délai de raccordement, le taux de réclamation traitée dans les délais et la qualité de l'onde. Les résultats sont publiés chaque trimestre.",
+          "tokens": 31
+        },
+        {
+          "chunk_id": "DOC-QUALITE-ANRE-C02",
+          "text": "Le seuil national de SAIDI est fixé à 300 minutes par client et par an. Un dépassement de plus de 10 % expose l'opérateur à une pénalité proportionnelle au nombre de clients affectés.",
+          "tokens": 33
+        },
+        {
+          "chunk_id": "DOC-QUALITE-ANRE-C03",
+          "text": "Le délai moyen de raccordement d'un client basse tension doit rester inférieur à 15 jours ouvrés. Pour un client moyenne tension, le délai cible est de 60 jours.",
+          "tokens": 28
+        },
+        {
+          "chunk_id": "DOC-QUALITE-ANRE-C04",
+          "text": "Les coupures planifiées doivent être notifiées au moins 5 jours à l'avance, sauf urgence technique. Leur durée est exclue du calcul du SAIDI sous conditions.",
+          "tokens": 25
+        }
+      ]
+    }
+  ],
+  "count": 12
+}

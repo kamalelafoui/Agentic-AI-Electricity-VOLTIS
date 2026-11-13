@@ -1,0 +1,502 @@
+{
+  "schema": "volt-is.a2a/1.0",
+  "protocol": {
+    "name": "Agent-to-Agent (A2A)",
+    "version": "0.3.0",
+    "transport": "HTTP + JSON",
+    "message_format": "JSON-RPC 2.0 compatible",
+    "discovery": "AgentCard sur /.well-known/agent.json",
+    "correlation": "correlation_id UUID v4 propagé à chaque délégation",
+    "endpoints": {
+      "orchestrator": "http://127.0.0.1:8101",
+      "discover": "http://127.0.0.1:8101/discover",
+      "agents": "http://127.0.0.1:8101/agents",
+      "orchestrate": "http://127.0.0.1:8101/orchestrate"
+    }
+  },
+  "orchestrator": {
+    "agent_id": "orchestrator",
+    "label": "VOLTIS Orchestrator",
+    "port": 8101,
+    "role": "Découverte, sélection, délégation parallèle, agrégation et traçabilité.",
+    "strategy": "Score de correspondance entre la question et les mots-clés/capacités des AgentCards ; 1 à 3 agents selon l'intention."
+  },
+  "agents": [
+    {
+      "agent_id": "grid-analyst",
+      "label": "Grid Analyst",
+      "port": 8102,
+      "url": "http://127.0.0.1:8102",
+      "card_url": "http://127.0.0.1:8102/.well-known/agent.json",
+      "message_url": "http://127.0.0.1:8102/message",
+      "skills": [
+        "grid-analyst.main"
+      ],
+      "tools": [
+        "get_grid_kpis",
+        "get_region_profile",
+        "get_consumption",
+        "get_production_mix"
+      ],
+      "keywords": [
+        "consommation",
+        "production",
+        "mix",
+        "kpi",
+        "région",
+        "charge",
+        "renouvelable",
+        "clients",
+        "pertes"
+      ],
+      "card": {
+        "name": "Grid Analyst",
+        "description": "Analyse la consommation, le mix de production et les KPI réseau.",
+        "url": "http://127.0.0.1:8102",
+        "version": "1.0.0",
+        "protocolVersion": "0.3.0",
+        "provider": {
+          "organization": "VOLTIS",
+          "url": "http://localhost:8033"
+        },
+        "documentationUrl": "http://localhost:8033/?page=a2a&agent=grid-analyst",
+        "capabilities": {
+          "streaming": false,
+          "pushNotifications": false,
+          "stateTransitionHistory": true
+        },
+        "defaultInputModes": [
+          "text/plain",
+          "application/json"
+        ],
+        "defaultOutputModes": [
+          "text/markdown",
+          "application/json"
+        ],
+        "skills": [
+          {
+            "id": "grid-analyst.main",
+            "name": "Grid Analyst",
+            "description": "Analyse la consommation, le mix de production et les KPI réseau.",
+            "tags": [
+              "consommation",
+              "production",
+              "mix",
+              "kpi",
+              "région",
+              "charge"
+            ],
+            "examples": [
+              "Quel est le mix de production national ?",
+              "Donne-moi le profil de la région Casablanca-Settat.",
+              "Quelle est la consommation mensuelle du réseau ?"
+            ],
+            "inputModes": [
+              "text/plain"
+            ],
+            "outputModes": [
+              "text/markdown",
+              "application/json"
+            ]
+          }
+        ],
+        "metadata": {
+          "agent_id": "grid-analyst",
+          "tools": [
+            "get_grid_kpis",
+            "get_region_profile",
+            "get_consumption",
+            "get_production_mix"
+          ],
+          "keywords": [
+            "consommation",
+            "production",
+            "mix",
+            "kpi",
+            "région",
+            "charge",
+            "renouvelable",
+            "clients",
+            "pertes"
+          ],
+          "port": 8102,
+          "hub": "VOLTIS Agentic Hub",
+          "owner": "Direction Digitale & Exploitation"
+        }
+      }
+    },
+    {
+      "agent_id": "outage-inspector",
+      "label": "Outage Inspector",
+      "port": 8103,
+      "url": "http://127.0.0.1:8103",
+      "card_url": "http://127.0.0.1:8103/.well-known/agent.json",
+      "message_url": "http://127.0.0.1:8103/message",
+      "skills": [
+        "outage-inspector.main"
+      ],
+      "tools": [
+        "query_outages",
+        "get_service_quality",
+        "search_knowledge"
+      ],
+      "keywords": [
+        "coupure",
+        "incident",
+        "panne",
+        "délestage",
+        "saidi",
+        "saifi",
+        "mttr",
+        "urgence",
+        "réseau"
+      ],
+      "card": {
+        "name": "Outage Inspector",
+        "description": "Diagnostique les incidents, coupures, causes et indicateurs de continuité.",
+        "url": "http://127.0.0.1:8103",
+        "version": "1.0.0",
+        "protocolVersion": "0.3.0",
+        "provider": {
+          "organization": "VOLTIS",
+          "url": "http://localhost:8033"
+        },
+        "documentationUrl": "http://localhost:8033/?page=a2a&agent=outage-inspector",
+        "capabilities": {
+          "streaming": false,
+          "pushNotifications": false,
+          "stateTransitionHistory": true
+        },
+        "defaultInputModes": [
+          "text/plain",
+          "application/json"
+        ],
+        "defaultOutputModes": [
+          "text/markdown",
+          "application/json"
+        ],
+        "skills": [
+          {
+            "id": "outage-inspector.main",
+            "name": "Outage Inspector",
+            "description": "Diagnostique les incidents, coupures, causes et indicateurs de continuité.",
+            "tags": [
+              "coupure",
+              "incident",
+              "panne",
+              "délestage",
+              "saidi",
+              "saifi"
+            ],
+            "examples": [
+              "Pourquoi Maârif a subi une coupure hier soir ?",
+              "Combien d'incidents P1 sur les 90 derniers jours ?",
+              "Quel est le SAIDI de la région Oriental ?"
+            ],
+            "inputModes": [
+              "text/plain"
+            ],
+            "outputModes": [
+              "text/markdown",
+              "application/json"
+            ]
+          }
+        ],
+        "metadata": {
+          "agent_id": "outage-inspector",
+          "tools": [
+            "query_outages",
+            "get_service_quality",
+            "search_knowledge"
+          ],
+          "keywords": [
+            "coupure",
+            "incident",
+            "panne",
+            "délestage",
+            "saidi",
+            "saifi",
+            "mttr",
+            "urgence",
+            "réseau"
+          ],
+          "port": 8103,
+          "hub": "VOLTIS Agentic Hub",
+          "owner": "Direction Digitale & Exploitation"
+        }
+      }
+    },
+    {
+      "agent_id": "billing-advisor",
+      "label": "Billing Advisor",
+      "port": 8104,
+      "url": "http://127.0.0.1:8104",
+      "card_url": "http://127.0.0.1:8104/.well-known/agent.json",
+      "message_url": "http://127.0.0.1:8104/message",
+      "skills": [
+        "billing-advisor.main"
+      ],
+      "tools": [
+        "simulate_bill",
+        "recommend_energy_savings"
+      ],
+      "keywords": [
+        "facture",
+        "tarif",
+        "prix",
+        "client",
+        "économies",
+        "kwh",
+        "mad",
+        "consommation",
+        "abonnement"
+      ],
+      "card": {
+        "name": "Billing Advisor",
+        "description": "Simule les factures, explique les tarifs et propose des économies d'énergie.",
+        "url": "http://127.0.0.1:8104",
+        "version": "1.0.0",
+        "protocolVersion": "0.3.0",
+        "provider": {
+          "organization": "VOLTIS",
+          "url": "http://localhost:8033"
+        },
+        "documentationUrl": "http://localhost:8033/?page=a2a&agent=billing-advisor",
+        "capabilities": {
+          "streaming": false,
+          "pushNotifications": false,
+          "stateTransitionHistory": true
+        },
+        "defaultInputModes": [
+          "text/plain",
+          "application/json"
+        ],
+        "defaultOutputModes": [
+          "text/markdown",
+          "application/json"
+        ],
+        "skills": [
+          {
+            "id": "billing-advisor.main",
+            "name": "Billing Advisor",
+            "description": "Simule les factures, explique les tarifs et propose des économies d'énergie.",
+            "tags": [
+              "facture",
+              "tarif",
+              "prix",
+              "client",
+              "économies",
+              "kwh"
+            ],
+            "examples": [
+              "Simule la facture d'un industriel à 250 MWh.",
+              "Comment réduire la facture du client CLI-001 ?",
+              "Explique les tranches du tarif résidentiel."
+            ],
+            "inputModes": [
+              "text/plain"
+            ],
+            "outputModes": [
+              "text/markdown",
+              "application/json"
+            ]
+          }
+        ],
+        "metadata": {
+          "agent_id": "billing-advisor",
+          "tools": [
+            "simulate_bill",
+            "recommend_energy_savings"
+          ],
+          "keywords": [
+            "facture",
+            "tarif",
+            "prix",
+            "client",
+            "économies",
+            "kwh",
+            "mad",
+            "consommation",
+            "abonnement"
+          ],
+          "port": 8104,
+          "hub": "VOLTIS Agentic Hub",
+          "owner": "Direction Digitale & Exploitation"
+        }
+      }
+    },
+    {
+      "agent_id": "forecast-agent",
+      "label": "Forecast Agent",
+      "port": 8105,
+      "url": "http://127.0.0.1:8105",
+      "card_url": "http://127.0.0.1:8105/.well-known/agent.json",
+      "message_url": "http://127.0.0.1:8105/message",
+      "skills": [
+        "forecast-agent.main"
+      ],
+      "tools": [
+        "forecast_load",
+        "get_grid_kpis"
+      ],
+      "keywords": [
+        "prévision",
+        "demain",
+        "pointe",
+        "risque",
+        "surcharge",
+        "réserve",
+        "météo",
+        "température",
+        "19h"
+      ],
+      "card": {
+        "name": "Forecast Agent",
+        "description": "Prévoit la charge, la pointe, la marge de réserve et le risque de tension.",
+        "url": "http://127.0.0.1:8105",
+        "version": "1.0.0",
+        "protocolVersion": "0.3.0",
+        "provider": {
+          "organization": "VOLTIS",
+          "url": "http://localhost:8033"
+        },
+        "documentationUrl": "http://localhost:8033/?page=a2a&agent=forecast-agent",
+        "capabilities": {
+          "streaming": false,
+          "pushNotifications": false,
+          "stateTransitionHistory": true
+        },
+        "defaultInputModes": [
+          "text/plain",
+          "application/json"
+        ],
+        "defaultOutputModes": [
+          "text/markdown",
+          "application/json"
+        ],
+        "skills": [
+          {
+            "id": "forecast-agent.main",
+            "name": "Forecast Agent",
+            "description": "Prévoit la charge, la pointe, la marge de réserve et le risque de tension.",
+            "tags": [
+              "prévision",
+              "demain",
+              "pointe",
+              "risque",
+              "surcharge",
+              "réserve"
+            ],
+            "examples": [
+              "Quel est le risque de surcharge demain à 19 h ?",
+              "Prévois la pointe de Casablanca avec +5 °C.",
+              "Quelle réserve faut-il mobiliser demain ?"
+            ],
+            "inputModes": [
+              "text/plain"
+            ],
+            "outputModes": [
+              "text/markdown",
+              "application/json"
+            ]
+          }
+        ],
+        "metadata": {
+          "agent_id": "forecast-agent",
+          "tools": [
+            "forecast_load",
+            "get_grid_kpis"
+          ],
+          "keywords": [
+            "prévision",
+            "demain",
+            "pointe",
+            "risque",
+            "surcharge",
+            "réserve",
+            "météo",
+            "température",
+            "19h"
+          ],
+          "port": 8105,
+          "hub": "VOLTIS Agentic Hub",
+          "owner": "Direction Digitale & Exploitation"
+        }
+      }
+    }
+  ],
+  "flows": [
+    {
+      "name": "Découverte",
+      "steps": [
+        "GET /.well-known/agent.json (orchestrateur)",
+        "GET /agents",
+        "Filtrer par capacité",
+        "Retourner les cartes"
+      ]
+    },
+    {
+      "name": "Délégation",
+      "steps": [
+        "POST /orchestrate {question, region_code}",
+        "Générer correlation_id",
+        "POST /message sur chaque agent retenu",
+        "Recevoir les artifacts",
+        "AgrégER et journaliser"
+      ]
+    },
+    {
+      "name": "Agrégation",
+      "steps": [
+        "Fusionner les artifacts",
+        "Dédupliquer les sources",
+        "Produire la réponse finale",
+        "Exposer la timeline"
+      ]
+    }
+  ],
+  "observability": {
+    "log_file": "data/a2a_delegations.jsonl",
+    "fields": [
+      "correlation_id",
+      "timestamp",
+      "orchestrator",
+      "agent_id",
+      "status",
+      "latency_ms",
+      "task",
+      "artifact_summary"
+    ],
+    "metrics": [
+      "taux de succès",
+      "latence P50/P95",
+      "nombre de délégations par agent",
+      "taux d'escalade"
+    ]
+  },
+  "security": {
+    "authentication": "jeton Bearer en production (désactivé en démo locale)",
+    "authorization": "liste blanche des agents par capability",
+    "pii": "aucune donnée personnelle réelle ; clients synthétiques",
+    "audit": "chaque message conserve correlation_id et horodatage"
+  },
+  "examples": [
+    {
+      "question": "Analyse la coupure de Maârif et propose un plan d'action.",
+      "selected_agents": [
+        "outage-inspector",
+        "forecast-agent",
+        "billing-advisor"
+      ],
+      "correlation_id": "a2a-demo-0001"
+    },
+    {
+      "question": "Quel est le mix national et le risque de pointe demain ?",
+      "selected_agents": [
+        "grid-analyst",
+        "forecast-agent"
+      ],
+      "correlation_id": "a2a-demo-0002"
+    }
+  ]
+}

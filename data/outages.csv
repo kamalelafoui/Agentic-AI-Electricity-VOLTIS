@@ -1,0 +1,73 @@
+incident_id,started_at,region_code,region,feeder,cause,duration_min,customers_affected,status,priority,crew,mttr_min,energy_not_served_mwh
+INC-2026-0203,2026-11-12 10:30,RSK,Rabat-Salé-Kénitra,AGDAL-02,Travaux programmés,180,1500,Planifié,P3,Équipe Nord,,567.0
+INC-2026-0202,2026-11-12 08:10,CAS,Casablanca-Settat,SIDI-BELYOUT-03,Équipement défaillant,45,820,En cours,P3,Équipe Centre,,77.5
+INC-2026-0201,2026-11-11 19:20,CAS,Casablanca-Settat,MAARIF-01,Surcharge réseau,96,2340,Résolu,P2,Équipe Centre,96,471.7
+INC-2026-0204,2026-11-11 18:45,TTA,Tanger-Tétouan-Al Hoceïma,TANGER-MED-01,Météo extrême,210,5200,En cours,P2,Équipe Nord,,2293.2
+INC-2026-0139,2026-11-10 12:00,SOM,Souss-Massa,TIZNIT-03,Surcharge réseau,42,883,En cours,P3,Astreinte 24/7,,77.9
+INC-2026-0140,2026-11-08 19:45,MRS,Marrakech-Safi,SAFI-05,Équipement défaillant,57,63,Résolu,P3,Astreinte 24/7,57,7.5
+INC-2026-0131,2026-11-07 00:15,SOM,Souss-Massa,Chtouka-05,Météo extrême,225,698,Résolu,P3,Équipe Nord,225,329.8
+INC-2026-0155,2026-11-03 02:45,BMK,Béni Mellal-Khénifra,KHENIFRA-02,Surcharge réseau,56,249,Résolu,P3,Équipe Centre,56,29.3
+INC-2026-0132,2026-11-02 02:30,FES,Fès-Meknès,ZOUAGHA-01,Végétation,105,5003,Résolu,P2,Équipe Sud,105,1103.2
+INC-2026-0159,2026-10-28 06:15,ORI,Oriental,JERADA-05,Poste / transformateur,239,227,En cours,P3,Astreinte 24/7,,113.9
+INC-2026-0102,2026-10-27 10:45,TTA,Tanger-Tétouan-Al Hoceïma,ALHOCEIMA-04,Cause externe (chantier),21,1219,Résolu,P3,Équipe Nord,21,53.8
+INC-2026-0137,2026-10-27 04:30,MRS,Marrakech-Safi,SAFI-05,Poste / transformateur,164,287,Résolu,P3,Équipe Sud,164,98.8
+INC-2026-0123,2026-10-23 11:00,SOM,Souss-Massa,Chtouka-05,Cause externe (chantier),107,730,Résolu,P3,Équipe Nord,107,164.0
+INC-2026-0142,2026-10-22 11:15,MRS,Marrakech-Safi,MENARA-02,Surcharge réseau,134,294,Résolu,P3,Astreinte 24/7,134,82.7
+INC-2026-0141,2026-10-22 01:45,CAS,Casablanca-Settat,NOUACEUR-05,Surcharge réseau,49,661,Résolu,P3,Équipe Est,49,68.0
+INC-2026-0167,2026-10-21 09:15,RSK,Rabat-Salé-Kénitra,AGDAL-02,Travaux programmés,117,413,Planifié,P3,Équipe Est,,101.5
+INC-2026-0162,2026-10-20 08:30,TTA,Tanger-Tétouan-Al Hoceïma,ALHOCEIMA-04,Poste / transformateur,161,232,Résolu,P3,Astreinte 24/7,161,78.4
+INC-2026-0153,2026-10-20 00:45,RSK,Rabat-Salé-Kénitra,SALE-04,Cause externe (chantier),88,571,Résolu,P3,Équipe Est,88,105.5
+INC-2026-0147,2026-10-18 17:15,MRS,Marrakech-Safi,ESSAOUIRA-03,Équipement défaillant,159,680,Résolu,P3,Équipe Sud,159,227.1
+INC-2026-0128,2026-10-18 01:00,MRS,Marrakech-Safi,GUELIZ-01,Travaux programmés,270,225,Résolu,P1,Astreinte 24/7,270,127.6
+INC-2026-0168,2026-10-16 21:00,FES,Fès-Meknès,ZOUAGHA-01,Poste / transformateur,205,1692,En cours,P2,Astreinte 24/7,,728.4
+INC-2026-0110,2026-10-11 07:45,CAS,Casablanca-Settat,AIN-SEBAÂ-02,Travaux programmés,222,172,Résolu,P3,Équipe Sud,222,80.2
+INC-2026-0116,2026-10-06 09:00,MRS,Marrakech-Safi,ESSAOUIRA-03,Travaux programmés,119,416,Planifié,P3,Équipe Sud,,104.0
+INC-2026-0145,2026-10-05 21:30,MRS,Marrakech-Safi,SAFI-05,Végétation,35,606,Résolu,P3,Équipe Est,35,44.5
+INC-2026-0120,2026-10-03 19:00,RSK,Rabat-Salé-Kénitra,SALE-04,Travaux programmés,212,481,Planifié,P3,Équipe Est,,214.1
+INC-2026-0135,2026-10-03 13:30,RSK,Rabat-Salé-Kénitra,SKHIRAT-03,Météo extrême,254,4196,Résolu,P1,Équipe Sud,254,2238.1
+INC-2026-0164,2026-10-03 06:30,FES,Fès-Meknès,MEDINA-02,Surcharge réseau,110,550,Résolu,P3,Équipe Nord,110,127.0
+INC-2026-0126,2026-10-01 13:30,MRS,Marrakech-Safi,CHICHAOUA-04,Travaux programmés,348,250,Résolu,P1,Équipe Nord,348,182.7
+INC-2026-0143,2026-09-30 23:15,BMK,Béni Mellal-Khénifra,BENI-MELLAL-01,Équipement défaillant,152,764,Résolu,P3,Astreinte 24/7,152,243.9
+INC-2026-0151,2026-09-29 13:00,FES,Fès-Meknès,TAZA-03,Travaux programmés,198,157,Résolu,P3,Astreinte 24/7,198,65.3
+INC-2026-0133,2026-09-28 06:00,FES,Fès-Meknès,MEKNES-04,Équipement défaillant,203,782,Résolu,P3,Équipe Centre,203,333.4
+INC-2026-0148,2026-09-28 02:15,SOM,Souss-Massa,Chtouka-05,Surcharge réseau,59,782,Résolu,P3,Équipe Nord,59,96.9
+INC-2026-0111,2026-09-27 00:00,CAS,Casablanca-Settat,AIN-SEBAÂ-02,Équipement défaillant,116,1332,Résolu,P3,Équipe Sud,116,324.5
+INC-2026-0160,2026-09-26 20:30,BMK,Béni Mellal-Khénifra,BENI-MELLAL-01,Équipement défaillant,207,495,Résolu,P3,Astreinte 24/7,207,215.2
+INC-2026-0158,2026-09-25 17:30,ORI,Oriental,BERKANE-03,Équipement défaillant,188,264,Résolu,P3,Équipe Centre,188,104.2
+INC-2026-0122,2026-09-24 03:00,MRS,Marrakech-Safi,GUELIZ-01,Poste / transformateur,153,642,Résolu,P3,Équipe Sud,153,206.3
+INC-2026-0144,2026-09-23 14:15,CAS,Casablanca-Settat,MAARIF-01,Météo extrême,238,201,Résolu,P3,Astreinte 24/7,238,100.5
+INC-2026-0118,2026-09-23 07:15,FES,Fès-Meknès,IFRANE-05,Végétation,71,380,Résolu,P3,Équipe Est,71,56.7
+INC-2026-0106,2026-09-20 09:30,ORI,Oriental,OUJDA-01,Météo extrême,303,56,En cours,P1,Équipe Sud,,35.6
+INC-2026-0152,2026-09-19 06:30,CAS,Casablanca-Settat,AIN-SEBAÂ-02,Travaux programmés,217,262,Planifié,P3,Équipe Centre,,119.4
+INC-2026-0165,2026-09-19 02:45,BMK,Béni Mellal-Khénifra,KHENIFRA-02,Surcharge réseau,45,490,Résolu,P3,Équipe Est,45,46.3
+INC-2026-0163,2026-09-19 01:30,CAS,Casablanca-Settat,AIN-SEBAÂ-02,Poste / transformateur,197,319,Résolu,P3,Équipe Centre,197,132.0
+INC-2026-0117,2026-09-18 02:30,TTA,Tanger-Tétouan-Al Hoceïma,TANGER-MED-01,Équipement défaillant,33,637,En cours,P3,Astreinte 24/7,,44.1
+INC-2026-0103,2026-09-17 04:30,TTA,Tanger-Tétouan-Al Hoceïma,TANGER-MED-01,Travaux programmés,145,2361,Planifié,P2,Astreinte 24/7,,718.9
+INC-2026-0107,2026-09-16 15:45,BMK,Béni Mellal-Khénifra,FQUIH-BENSALAH-03,Travaux programmés,134,106,Planifié,P3,Équipe Centre,,29.8
+INC-2026-0138,2026-09-16 12:00,RSK,Rabat-Salé-Kénitra,SKHIRAT-03,Cause externe (chantier),110,166,Résolu,P3,Astreinte 24/7,110,38.3
+INC-2026-0124,2026-09-15 00:30,RSK,Rabat-Salé-Kénitra,KENITRA-06,Travaux programmés,93,114,Planifié,P3,Équipe Nord,,22.3
+INC-2026-0121,2026-09-12 21:30,TTA,Tanger-Tétouan-Al Hoceïma,LARACHE-03,Équipement défaillant,247,400,Résolu,P1,Équipe Sud,247,207.5
+INC-2026-0104,2026-09-12 18:15,ORI,Oriental,NADOR-02,Travaux programmés,121,677,Planifié,P3,Équipe Nord,,172.0
+INC-2026-0146,2026-09-10 16:00,TTA,Tanger-Tétouan-Al Hoceïma,LARACHE-03,Travaux programmés,69,1685,Planifié,P2,Équipe Est,,244.2
+INC-2026-0115,2026-09-08 02:00,MRS,Marrakech-Safi,SAFI-05,Surcharge réseau,97,652,Résolu,P3,Astreinte 24/7,97,132.8
+INC-2026-0112,2026-09-06 15:15,SOM,Souss-Massa,TAROUDANT-02,Météo extrême,143,658,Résolu,P3,Équipe Centre,143,197.6
+INC-2026-0129,2026-09-05 09:30,RSK,Rabat-Salé-Kénitra,SALE-04,Équipement défaillant,161,641,Résolu,P3,Équipe Centre,161,216.7
+INC-2026-0154,2026-09-02 17:30,CAS,Casablanca-Settat,SIDI-BELYOUT-03,Équipement défaillant,164,278,Résolu,P3,Équipe Est,164,95.7
+INC-2026-0166,2026-09-02 08:15,BMK,Béni Mellal-Khénifra,AZILAL-04,Travaux programmés,178,942,Planifié,P3,Équipe Sud,,352.1
+INC-2026-0108,2026-08-27 07:00,SOM,Souss-Massa,OUARZAZATE-04,Équipement défaillant,243,129,Résolu,P1,Astreinte 24/7,243,65.8
+INC-2026-0134,2026-08-25 08:15,TTA,Tanger-Tétouan-Al Hoceïma,CHEFCHAOUEN-05,Météo extrême,190,644,Résolu,P3,Équipe Centre,190,257.0
+INC-2026-0127,2026-08-25 01:00,TTA,Tanger-Tétouan-Al Hoceïma,TANGER-MED-01,Météo extrême,239,631,Résolu,P3,Équipe Nord,239,316.7
+INC-2026-0113,2026-08-24 11:15,TTA,Tanger-Tétouan-Al Hoceïma,ALHOCEIMA-04,Travaux programmés,261,263,Résolu,P1,Équipe Est,261,144.2
+INC-2026-0119,2026-08-23 20:15,MRS,Marrakech-Safi,GUELIZ-01,Végétation,17,141,Résolu,P3,Équipe Centre,17,5.0
+INC-2026-0130,2026-08-22 19:30,BMK,Béni Mellal-Khénifra,FQUIH-BENSALAH-03,Surcharge réseau,29,2025,Résolu,P2,Équipe Est,29,123.3
+INC-2026-0136,2026-08-22 09:45,CAS,Casablanca-Settat,AIN-SEBAÂ-02,Poste / transformateur,124,80,Résolu,P3,Équipe Centre,124,20.8
+INC-2026-0156,2026-08-21 04:45,RSK,Rabat-Salé-Kénitra,TEMARA-01,Végétation,84,1346,Résolu,P3,Équipe Nord,84,237.4
+INC-2026-0109,2026-08-20 12:00,MRS,Marrakech-Safi,ESSAOUIRA-03,Équipement défaillant,197,116,Résolu,P3,Équipe Centre,197,48.0
+INC-2026-0157,2026-08-19 16:30,CAS,Casablanca-Settat,NOUACEUR-05,Équipement défaillant,182,1514,Résolu,P2,Équipe Nord,182,578.7
+INC-2026-0161,2026-08-18 18:30,CAS,Casablanca-Settat,NOUACEUR-05,Travaux programmés,172,265,Résolu,P3,Équipe Est,172,95.7
+INC-2026-0150,2026-08-18 16:00,MRS,Marrakech-Safi,ESSAOUIRA-03,Équipement défaillant,205,356,En cours,P3,Équipe Est,,153.3
+INC-2026-0101,2026-08-18 13:30,BMK,Béni Mellal-Khénifra,AZILAL-04,Météo extrême,263,2268,Résolu,P1,Équipe Sud,263,1252.6
+INC-2026-0149,2026-08-16 15:00,MRS,Marrakech-Safi,MENARA-02,Travaux programmés,278,156,Planifié,P1,Équipe Centre,,91.1
+INC-2026-0105,2026-08-16 10:00,ORI,Oriental,BERKANE-03,Travaux programmés,110,148,Planifié,P3,Équipe Centre,,34.2
+INC-2026-0114,2026-08-16 01:45,MRS,Marrakech-Safi,SAFI-05,Travaux programmés,69,79,Planifié,P3,Équipe Nord,,11.4
+INC-2026-0125,2026-08-15 09:15,SOM,Souss-Massa,TAROUDANT-02,Cause externe (chantier),97,290,Résolu,P3,Équipe Centre,97,59.1

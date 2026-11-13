@@ -1,0 +1,81 @@
+name: voltis
+
+services:
+  mcp:
+    build: .
+    image: voltis:1.0
+    container_name: voltis-mcp
+    command: ["python", "main.py", "mcp"]
+    ports:
+      - "8100:8100"
+    environment:
+      VOLTIS_MCP_PORT: "8100"
+    volumes:
+      - ./data:/app/data
+      - ./a2a/logs:/app/a2a/logs
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:8100/api/health"]
+      interval: 20s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+    restart: unless-stopped
+
+  a2a:
+    build: .
+    image: voltis:1.0
+    container_name: voltis-a2a
+    command: ["python", "main.py", "a2a"]
+    ports:
+      - "8101:8101"
+      - "8102:8102"
+      - "8103:8103"
+      - "8104:8104"
+      - "8105:8105"
+    environment:
+      VOLTIS_A2A_PORT: "8101"
+    volumes:
+      - ./data:/app/data
+      - ./a2a/logs:/app/a2a/logs
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:8101/health"]
+      interval: 20s
+      timeout: 5s
+      retries: 6
+      start_period: 25s
+    restart: unless-stopped
+
+  dashboard:
+    build: .
+    image: voltis:1.0
+    container_name: voltis-dashboard
+    command: ["python", "main.py", "dashboard"]
+    ports:
+      - "8033:8033"
+    environment:
+      VOLTIS_MCP_URL: "http://mcp:8100"
+      VOLTIS_A2A_URL: "http://a2a:8101"
+      VOLTIS_DASHBOARD_PORT: "8033"
+    volumes:
+      - ./data:/app/data:ro
+      - ./json:/app/json:ro
+      - ./docs:/app/docs:ro
+      - ./presentation:/app/presentation:ro
+      - ./screenshots:/app/screenshots:ro
+      - ./assets:/app/assets:ro
+    depends_on:
+      mcp:
+        condition: service_healthy
+      a2a:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:8033/_stcore/health"]
+      interval: 20s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+    restart: unless-stopped
+
+networks:
+  default:
+    name: voltis-net

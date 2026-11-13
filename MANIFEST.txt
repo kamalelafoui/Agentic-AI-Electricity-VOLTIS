@@ -1,0 +1,124 @@
+VOLTIS — Agentic AI for the Electricity Sector
+Version 1.0.0 — 12 novembre 2026
+====================================================
+
+RACINE
+  main.py                         Lanceur unique : all, dashboard, mcp, a2a, demo, check, build
+  README.md                       Guide de démarrage, architecture, endpoints, benchmark
+  LIVRABLES.md                    Correspondance critères / preuves / checklist
+  GITHUB.md                       Publication et mise à jour du dépôt GitHub
+  MANIFEST.txt                    Ce fichier
+  LICENSE                         Licence MIT
+  requirements.txt                Dépendances Python
+  requirements-dev.txt            Dépendances de développement
+  Dockerfile                      Image Python 3.12 avec healthcheck
+  docker-compose.yml              3 services : dashboard 8033, mcp 8100, a2a 8101-8105
+  .env.example                    Variables d'environnement
+  .gitignore / .dockerignore      Exclusions
+  start_demo.ps1 / start_demo.sh  Lancement guidé
+
+DASHBOARD
+  dashboard/app.py                Dashboard Streamlit 8033 (7 pages, CSS, Plotly)
+  .streamlit/config.toml          Thème et port 8033
+
+MCP
+  mcp_server/server.py            Serveur MCP 8100 : JSON-RPC, SSE, REST, 10 outils
+  mcp_server/__init__.py          Package
+
+A2A
+  a2a/server.py                   Orchestrateur 8101 + agents 8102-8105
+  a2a/agents.py                   Logique des 4 agents
+  a2a/agent_cards/*.json          5 AgentCards servies par les agents
+  a2a/logs/                       Journaux d'exécution
+  a2a/__init__.py                 Package
+
+LANGGRAPH
+  langgraph_workflow/workflow.py  Planner → Retriever → Tools → Writer → Critic → Refiner
+  langgraph_workflow/__init__.py  Package
+
+SOCLE MÉTIER
+  shared/electricity_core.py      Données, KPI, RAG hybride, 10 outils, simulations
+  shared/__init__.py              Package
+
+DONNÉES
+  data/regions.json               8 régions, clients, consommation, pointe, SAIDI
+  data/load_curve.csv             5 760 lignes horaires sur 30 jours
+  data/monthly_consumption.csv    96 lignes mensuelles
+  data/outages.csv                72 incidents sur 90 jours
+  data/customers.json             24 clients suivis
+  data/tariffs.json               5 segments tarifaires
+  data/corpus.json                12 documents / 49 chunks
+  data/corpus/*.md                12 documents lisibles
+  data/benchmarks.json            5 tâches, scores initiaux/finaux, gains
+  data/site.json                  Configuration de marque et de ports
+
+JSON
+  json/mcp_manifest.json          Manifest MCP complet
+  json/a2a_manifest.json          Manifest A2A complet
+  json/rag_manifest.json          Manifest RAG (corpus, retriever, évaluation)
+  json/langgraph_manifest.json    Manifest LangGraph (nœuds, état, pondérations)
+  json/architecture_manifest.json Manifest architecture (couches, ADR, critères)
+  json/benchmarks.json            Rapport de benchmark
+  json/agentic_ai_electricity_full.json  Vue consolidée
+  json/agent_cards/*.json         5 AgentCards
+
+DOCUMENTATION
+  docs/Documentation_Finale_VOLTIS.docx   Documentation finale (23 pages)
+  docs/Documentation_Finale_VOLTIS.pdf    Version PDF
+  presentation/Presentation_Finale_VOLTIS.pptx  Présentation (26 slides)
+  presentation/Presentation_Finale_VOLTIS.pdf   Version PDF
+
+ASSETS
+  assets/logo.png                 Logo horizontal
+  assets/logo_light.png           Logo pour fond clair
+  assets/logo_sidebar.png         Logo de la barre latérale
+  assets/logo_mark.png            Marque seule
+  assets/favicon.png              Favicon
+  assets/architecture_hub.png     Architecture globale
+  assets/workflow_langgraph.png   Workflow LangGraph
+  assets/rag_pipeline.png         Pipeline Agentic RAG
+  assets/architecture_mcp.png     Architecture MCP
+  assets/architecture_a2a.png     Architecture A2A
+  assets/docker_topology.png      Topologie Docker
+  assets/benchmark_chart.png      Graphique benchmark
+  assets/criteria_chart.png       Graphique par critère
+  assets/mix_chart.png            Graphique mix de production
+
+CAPTURES
+  screenshots/home.png            Vue d'ensemble
+  screenshots/assistant.png       Assistant agentique
+  screenshots/a2a.png             Orchestration A2A
+  screenshots/stats.png           Statistiques
+  screenshots/mcp.png             MCP Playground
+  screenshots/architecture.png    Architecture
+  screenshots/docs.png            Documentation
+
+VIDÉO
+  videos/VOLTIS_Demo.mp4          Démonstration narrée (1 min 50, 8 séquences)
+
+SCRIPTS
+  scripts/build_data.py           Génère les données synthétiques
+  scripts/build_logo.py           Génère les logos
+  scripts/build_diagrams.py       Première version des schémas
+  scripts/build_diagrams_v2.py    Version corrigée des schémas
+  scripts/build_charts.py         Graphiques de synthèse
+  scripts/build_json.py           Génère les manifests et le benchmark
+  scripts/build_docs.py           Génère le DOCX et le PDF
+  scripts/build_deck.py           Génère le PPTX et le PDF
+  scripts/capture_screenshots.py  Capture le dashboard avec Playwright
+  scripts/docx_helpers.py         Helpers de mise en page DOCX
+  scripts/pptx_helpers.py         Helpers de mise en page PPTX
+  scripts/make_zip.py             Archive finale
+  scripts/debug_pptx.py           Diagnostic des slides
+
+TESTS
+  tests/test_volt_is.py           16 tests unitaires et d'intégration
+
+====================================================
+COMMANDES
+  python main.py                  Dashboard + MCP + A2A
+  python main.py check            Validation des données et livrables
+  python main.py demo             Benchmark Reflexion + démo A2A
+  python main.py build            Régénération des livrables
+  docker compose up --build       Déploiement complet
+====================================================

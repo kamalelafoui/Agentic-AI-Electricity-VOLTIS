@@ -1,0 +1,74 @@
+{
+  "name": "Outage Inspector",
+  "description": "Diagnostique les incidents, coupures, causes et indicateurs de continuité.",
+  "url": "http://127.0.0.1:8103",
+  "version": "1.0.0",
+  "protocolVersion": "0.3.0",
+  "provider": {
+    "organization": "VOLTIS",
+    "url": "http://localhost:8033"
+  },
+  "documentationUrl": "http://localhost:8033/?page=a2a&agent=outage-inspector",
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "stateTransitionHistory": true
+  },
+  "defaultInputModes": [
+    "text/plain",
+    "application/json"
+  ],
+  "defaultOutputModes": [
+    "text/markdown",
+    "application/json"
+  ],
+  "skills": [
+    {
+      "id": "outage-inspector.main",
+      "name": "Outage Inspector",
+      "description": "Diagnostique les incidents, coupures, causes et indicateurs de continuité.",
+      "tags": [
+        "coupure",
+        "incident",
+        "panne",
+        "délestage",
+        "saidi",
+        "saifi"
+      ],
+      "examples": [
+        "Pourquoi Maârif a subi une coupure hier soir ?",
+        "Combien d'incidents P1 sur les 90 derniers jours ?",
+        "Quel est le SAIDI de la région Oriental ?"
+      ],
+      "inputModes": [
+        "text/plain"
+      ],
+      "outputModes": [
+        "text/markdown",
+        "application/json"
+      ]
+    }
+  ],
+  "metadata": {
+    "agent_id": "outage-inspector",
+    "tools": [
+      "query_outages",
+      "get_service_quality",
+      "search_knowledge"
+    ],
+    "keywords": [
+      "coupure",
+      "incident",
+      "panne",
+      "délestage",
+      "saidi",
+      "saifi",
+      "mttr",
+      "urgence",
+      "réseau"
+    ],
+    "port": 8103,
+    "hub": "VOLTIS Agentic Hub",
+    "owner": "Direction Digitale & Exploitation"
+  }
+}

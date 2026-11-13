@@ -1,0 +1,71 @@
+{
+  "name": "VOLTIS Orchestrator",
+  "description": "Hub agentique : découvre les AgentCards, sélectionne les spécialistes, délègue en parallèle et agrège les résultats.",
+  "url": "http://127.0.0.1:8101",
+  "version": "1.0.0",
+  "protocolVersion": "0.3.0",
+  "provider": {
+    "organization": "VOLTIS"
+  },
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "stateTransitionHistory": true
+  },
+  "defaultInputModes": [
+    "text/plain",
+    "application/json"
+  ],
+  "defaultOutputModes": [
+    "text/markdown",
+    "application/json"
+  ],
+  "skills": [
+    {
+      "id": "orchestrator.discover",
+      "name": "Découverte A2A",
+      "description": "Interroge les AgentCards et sélectionne les agents selon la capacité demandée.",
+      "tags": [
+        "discovery",
+        "agent-card",
+        "routing"
+      ],
+      "examples": [
+        "Trouve les agents capables de diagnostiquer une coupure."
+      ],
+      "inputModes": [
+        "text/plain"
+      ],
+      "outputModes": [
+        "application/json"
+      ]
+    },
+    {
+      "id": "orchestrator.delegate",
+      "name": "Délégation parallèle",
+      "description": "Envoie une tâche à plusieurs agents avec un correlation_id unique et agrège les artefacts.",
+      "tags": [
+        "delegation",
+        "correlation-id",
+        "aggregation"
+      ],
+      "examples": [
+        "Analyse la coupure de Maârif et propose un plan d'action."
+      ],
+      "inputModes": [
+        "text/plain",
+        "application/json"
+      ],
+      "outputModes": [
+        "application/json"
+      ]
+    }
+  ],
+  "metadata": {
+    "agent_id": "orchestrator",
+    "port": 8101,
+    "card_url": "http://127.0.0.1:8101/.well-known/agent.json",
+    "discovery": "http://127.0.0.1:8101/agents",
+    "orchestrate": "http://127.0.0.1:8101/orchestrate"
+  }
+}

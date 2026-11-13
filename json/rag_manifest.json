@@ -1,0 +1,349 @@
+{
+  "schema": "volt-is.rag/1.0",
+  "name": "Agentic RAG VOLTIS",
+  "description": "RAG hybride agentique : planification de requête, retrieval multi-étapes, vérification de suffisance, synthèse sourcée et auto-critique.",
+  "corpus": {
+    "documents": 12,
+    "chunks": 49,
+    "languages": [
+      "fr"
+    ],
+    "domains": [
+      "exploitation",
+      "maintenance",
+      "commercial",
+      "réglementation",
+      "cybersécurité",
+      "sécurité"
+    ],
+    "source": "data/corpus/*.md + data/corpus.json",
+    "documents_index": [
+      {
+        "doc_id": "DOC-DELESTAGE",
+        "title": "Procédure de délestage et de gestion des pointes",
+        "category": "Exploitation",
+        "version": "3.2",
+        "date": "2026-03-18",
+        "chunks": 5,
+        "keywords": [
+          "délestage",
+          "pointe",
+          "charge",
+          "priorité",
+          "départ",
+          "margin",
+          "réserve"
+        ]
+      },
+      {
+        "doc_id": "DOC-MAINT-TR",
+        "title": "Guide de maintenance préventive des transformateurs MT/BT",
+        "category": "Maintenance",
+        "version": "5.0",
+        "date": "2026-01-22",
+        "chunks": 4,
+        "keywords": [
+          "transformateur",
+          "maintenance",
+          "huile",
+          "thermographie",
+          "charge",
+          "température",
+          "MT",
+          "BT"
+        ]
+      },
+      {
+        "doc_id": "DOC-CODE-RESEAU",
+        "title": "Code du réseau de distribution — qualité de l'onde",
+        "category": "Référentiel",
+        "version": "2.4",
+        "date": "2025-11-05",
+        "chunks": 4,
+        "keywords": [
+          "tension",
+          "fréquence",
+          "harmonique",
+          "qualité",
+          "onde",
+          "raccordement",
+          "BT",
+          "MT",
+          "tolérance"
+        ]
+      },
+      {
+        "doc_id": "DOC-TARIFS",
+        "title": "Structure tarifaire et facturation de l'électricité",
+        "category": "Commercial",
+        "version": "4.1",
+        "date": "2026-06-30",
+        "chunks": 4,
+        "keywords": [
+          "tarif",
+          "facture",
+          "tranche",
+          "kWh",
+          "TVA",
+          "taxe",
+          "résidentiel",
+          "industriel",
+          "agricole"
+        ]
+      },
+      {
+        "doc_id": "DOC-RENOUVELABLES",
+        "title": "Intégration des énergies renouvelables au réseau de distribution",
+        "category": "Technique",
+        "version": "2.1",
+        "date": "2026-04-12",
+        "chunks": 4,
+        "keywords": [
+          "solaire",
+          "éolien",
+          "renouvelable",
+          "raccordement",
+          "injection",
+          "stockage",
+          "intermittence",
+          "courbe de charge"
+        ]
+      },
+      {
+        "doc_id": "DOC-INCIDENTS",
+        "title": "Gestion des incidents et indicateurs de continuité",
+        "category": "Exploitation",
+        "version": "3.0",
+        "date": "2026-02-09",
+        "chunks": 4,
+        "keywords": [
+          "incident",
+          "SAIDI",
+          "SAIFI",
+          "MTTR",
+          "P1",
+          "P2",
+          "P3",
+          "coupure",
+          "continuité",
+          "escalade"
+        ]
+      },
+      {
+        "doc_id": "DOC-AMI",
+        "title": "Compteurs communicants et télérelève (AMI)",
+        "category": "Digital",
+        "version": "1.8",
+        "date": "2026-05-20",
+        "chunks": 4,
+        "keywords": [
+          "compteur",
+          "AMI",
+          "télérelève",
+          "données",
+          "pertes",
+          "concentrateur",
+          "cybersécurité",
+          "15 minutes"
+        ]
+      },
+      {
+        "doc_id": "DOC-SECURITE",
+        "title": "Sécurité des chantiers et consignations électriques",
+        "category": "Sécurité",
+        "version": "6.3",
+        "date": "2026-01-05",
+        "chunks": 4,
+        "keywords": [
+          "sécurité",
+          "consignation",
+          "EPI",
+          "habilitation",
+          "chantier",
+          "tension",
+          "HSE"
+        ]
+      },
+      {
+        "doc_id": "DOC-CLIENT",
+        "title": "Relation client, réclamations et compensation",
+        "category": "Commercial",
+        "version": "2.6",
+        "date": "2026-07-14",
+        "chunks": 4,
+        "keywords": [
+          "client",
+          "réclamation",
+          "délai",
+          "compensation",
+          "facture",
+          "coupure",
+          "satisfaction"
+        ]
+      },
+      {
+        "doc_id": "DOC-CYBER",
+        "title": "Cybersécurité des systèmes SCADA et OT",
+        "category": "Cybersécurité",
+        "version": "3.4",
+        "date": "2026-08-02",
+        "chunks": 4,
+        "keywords": [
+          "cybersécurité",
+          "SCADA",
+          "OT",
+          "MFA",
+          "segmentation",
+          "journal",
+          "incident",
+          "correctif"
+        ]
+      },
+      {
+        "doc_id": "DOC-PREVISION",
+        "title": "Prévision de la charge à J+1 et gestion des pointes",
+        "category": "Exploitation",
+        "version": "2.9",
+        "date": "2026-09-11",
+        "chunks": 4,
+        "keywords": [
+          "prévision",
+          "charge",
+          "pointe",
+          "météo",
+          "J+1",
+          "réserve",
+          "alerte",
+          "température"
+        ]
+      },
+      {
+        "doc_id": "DOC-QUALITE-ANRE",
+        "title": "Qualité de service et obligations réglementaires",
+        "category": "Réglementation",
+        "version": "1.5",
+        "date": "2026-10-01",
+        "chunks": 4,
+        "keywords": [
+          "ANRE",
+          "régulation",
+          "qualité",
+          "SAIDI",
+          "SAIFI",
+          "pénalité",
+          "publication",
+          "seuil"
+        ]
+      }
+    ]
+  },
+  "chunking": {
+    "strategy": "article-based",
+    "chunk_size_tokens": [
+      60,
+      120
+    ],
+    "overlap_tokens": 0,
+    "metadata": [
+      "doc_id",
+      "title",
+      "category",
+      "version",
+      "date",
+      "owner",
+      "article"
+    ]
+  },
+  "retriever": {
+    "type": "hybride",
+    "lexical": {
+      "algorithm": "BM25",
+      "k1": 1.5,
+      "b": 0.75
+    },
+    "semantic": {
+      "algorithm": "TF-IDF cosinus",
+      "vocabulary": "corpus",
+      "normalization": "NFKD + stopwords FR"
+    },
+    "fusion": {
+      "bm25_weight": 0.66,
+      "tfidf_weight": 0.86,
+      "title_bonus": 0.08,
+      "phrase_bonus": 0.12
+    },
+    "top_k_default": 4,
+    "query_expansion": "synonymes métier (coupure → incident, facture → tarif, …)"
+  },
+  "agentic_loop": {
+    "steps": [
+      "Analyser la question",
+      "Planifier les recherches",
+      "Retriever",
+      "Vérifier la suffisance",
+      "Reformuler si besoin",
+      "Synthétiser",
+      "Citer",
+      "Critiquer"
+    ],
+    "max_reformulations": 2,
+    "sufficiency_threshold": 0.55,
+    "citation_policy": "Chaque affirmation chiffrée ou normative est associée à une référence [n] et à un document versionné."
+  },
+  "evaluation": {
+    "metrics": [
+      "precision@k",
+      "recall@k",
+      "taux de citation",
+      "faithfulness",
+      "latence"
+    ],
+    "sample_query": "procédure de délestage en cas de pointe",
+    "sample_results": [
+      {
+        "doc_id": "DOC-DELESTAGE",
+        "title": "Procédure de délestage et de gestion des pointes",
+        "category": "Exploitation",
+        "version": "3.2",
+        "date": "2026-03-18",
+        "owner": "Direction Exploitation Réseau",
+        "article": 1,
+        "text": "Le délestage est déclenché lorsque la marge de réserve nationale descend sous 4 % de la pointe prévisionnelle pendant plus de quinze minutes, ou lorsqu'un incident affecte deux postes sources simultanément.",
+        "citation": "DOC-DELESTAGE · v3.2 · article 1",
+        "score": 1.0,
+        "relevance_pct": 99
+      },
+      {
+        "doc_id": "DOC-DELESTAGE",
+        "title": "Procédure de délestage et de gestion des pointes",
+        "category": "Exploitation",
+        "version": "3.2",
+        "date": "2026-03-18",
+        "owner": "Direction Exploitation Réseau",
+        "article": 3,
+        "text": "Avant tout délestage, le dispatcher vérifie la prévision J+1, la disponibilité des groupes, les importations et les consignes de sécurité. La décision est tracée dans le registre des manœuvres avec un horodatage à la seconde.",
+        "citation": "DOC-DELESTAGE · v3.2 · article 3",
+        "score": 0.8181,
+        "relevance_pct": 81.8
+      },
+      {
+        "doc_id": "DOC-PREVISION",
+        "title": "Prévision de la charge à J+1 et gestion des pointes",
+        "category": "Exploitation",
+        "version": "2.9",
+        "date": "2026-09-11",
+        "owner": "Direction Prévision & Dispatching",
+        "article": 4,
+        "text": "La marge de réserve minimale est de 8 % de la pointe prévisionnelle. Elle peut être abaissée à 4 % pendant une heure maximum, avec validation du directeur d'exploitation.",
+        "citation": "DOC-PREVISION · v2.9 · article 4",
+        "score": 0.8179,
+        "relevance_pct": 81.8
+      }
+    ]
+  },
+  "examples": [
+    "Quelle est la procédure de délestage ?",
+    "Quelles sont les tolérances de tension en BT ?",
+    "Comment réduire les pertes non techniques ?"
+  ]
+}

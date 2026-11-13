@@ -1,0 +1,15 @@
+.git
+.gitignore
+.env
+.venv
+venv
+__pycache__
+*.pyc
+*.pyo
+*.zip
+a2a/logs
+data/mcp_calls.jsonl
+data/a2a_delegations.jsonl
+data/demo_report.json
+.vscode
+.idea

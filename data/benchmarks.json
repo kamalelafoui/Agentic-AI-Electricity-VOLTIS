@@ -1,0 +1,422 @@
+{
+  "schema": "volt-is.benchmark/1.0",
+  "generated_at": "2026-11-12T17:02:59",
+  "protocol": {
+    "tasks": 5,
+    "iterations": 2,
+    "threshold": 9.9,
+    "method": "Chaque tâche est exécutée dans le graphe LangGraph complet ; le Critic note le brouillon initial puis chaque réécriture.",
+    "criteria": [
+      "clarté",
+      "exactitude",
+      "concision",
+      "cohérence"
+    ],
+    "scale": "0-10"
+  },
+  "tasks": [
+    {
+      "id": "T1",
+      "question": "Pourquoi le quartier Maârif a-t-il subi des coupures hier soir et que doit faire l'exploitation ?",
+      "region_code": "CAS",
+      "intent": "outage",
+      "tools": [
+        "query_outages",
+        "get_service_quality",
+        "search_knowledge"
+      ],
+      "sources": [
+        "DOC-INCIDENTS · v3.0 · article 2",
+        "DOC-QUALITE-ANRE · v1.5 · article 4",
+        "DOC-DELESTAGE · v3.2 · article 1",
+        "DOC-INCIDENTS · v3.0 · article 1",
+        "DOC-DELESTAGE · v3.2 · article 4",
+        "DOC-PREVISION · v2.9 · article 4"
+      ],
+      "initial": {
+        "overall": 6.4,
+        "scores": {
+          "clarity": 7.6,
+          "accuracy": 6.1,
+          "concision": 6.5,
+          "coherence": 5.5
+        },
+        "issues": [
+          "Ajouter des références explicites aux documents et aux outils.",
+          "Quantifier les constats avec les chiffres issus des outils.",
+          "Ajouter une section Sources avec les citations complètes.",
+          "Développer l'analyse (réponse trop courte)."
+        ]
+      },
+      "iterations": [
+        {
+          "label": "Initial",
+          "overall": 6.4,
+          "scores": {
+            "clarity": 7.6,
+            "accuracy": 6.1,
+            "concision": 6.5,
+            "coherence": 5.5
+          }
+        },
+        {
+          "label": "Itération 1",
+          "overall": 9.1,
+          "scores": {
+            "clarity": 9.1,
+            "accuracy": 9.2,
+            "concision": 10,
+            "coherence": 8.3
+          }
+        },
+        {
+          "label": "Itération 2",
+          "overall": 9.1,
+          "scores": {
+            "clarity": 8.5,
+            "accuracy": 9.2,
+            "concision": 10,
+            "coherence": 9.3
+          }
+        }
+      ],
+      "final": {
+        "overall": 9.1,
+        "scores": {
+          "clarity": 8.5,
+          "accuracy": 9.2,
+          "concision": 10,
+          "coherence": 9.3
+        },
+        "confidence": "Haute"
+      },
+      "gain": 2.7,
+      "elapsed_ms": 35.5,
+      "words": 438,
+      "citations": 11
+    },
+    {
+      "id": "T2",
+      "question": "Quel est le mix de production national et quelle est la part des renouvelables ?",
+      "region_code": "NATIONAL",
+      "intent": "mix",
+      "tools": [
+        "get_production_mix",
+        "get_grid_kpis",
+        "search_knowledge"
+      ],
+      "sources": [
+        "DOC-RENOUVELABLES · v2.1 · article 1",
+        "DOC-RENOUVELABLES · v2.1 · article 4",
+        "DOC-RENOUVELABLES · v2.1 · article 2",
+        "DOC-RENOUVELABLES · v2.1 · article 3",
+        "DOC-QUALITE-ANRE · v1.5 · article 2"
+      ],
+      "initial": {
+        "overall": 6.4,
+        "scores": {
+          "clarity": 7.6,
+          "accuracy": 5.8,
+          "concision": 6.1,
+          "coherence": 5.9
+        },
+        "issues": [
+          "Ajouter des références explicites aux documents et aux outils.",
+          "Quantifier les constats avec les chiffres issus des outils.",
+          "Ajouter une section Sources avec les citations complètes.",
+          "Développer l'analyse (réponse trop courte)."
+        ]
+      },
+      "iterations": [
+        {
+          "label": "Initial",
+          "overall": 6.4,
+          "scores": {
+            "clarity": 7.6,
+            "accuracy": 5.8,
+            "concision": 6.1,
+            "coherence": 5.9
+          }
+        },
+        {
+          "label": "Itération 1",
+          "overall": 9.4,
+          "scores": {
+            "clarity": 9.1,
+            "accuracy": 9.2,
+            "concision": 10,
+            "coherence": 9.8
+          }
+        },
+        {
+          "label": "Itération 2",
+          "overall": 9.5,
+          "scores": {
+            "clarity": 9.1,
+            "accuracy": 9.2,
+            "concision": 10,
+            "coherence": 10
+          }
+        }
+      ],
+      "final": {
+        "overall": 9.5,
+        "scores": {
+          "clarity": 9.1,
+          "accuracy": 9.2,
+          "concision": 10,
+          "coherence": 10
+        },
+        "confidence": "Haute"
+      },
+      "gain": 3.1,
+      "elapsed_ms": 27.9,
+      "words": 370,
+      "citations": 8
+    },
+    {
+      "id": "T3",
+      "question": "Simule la facture mensuelle d'un client industriel qui consomme 250 MWh à Casablanca.",
+      "region_code": "CAS",
+      "intent": "billing",
+      "tools": [
+        "simulate_bill",
+        "search_knowledge"
+      ],
+      "sources": [
+        "DOC-TARIFS · v4.1 · article 2",
+        "DOC-TARIFS · v4.1 · article 3",
+        "DOC-CLIENT · v2.6 · article 3",
+        "DOC-TARIFS · v4.1 · article 4",
+        "DOC-TARIFS · v4.1 · article 1",
+        "DOC-CLIENT · v2.6 · article 4"
+      ],
+      "initial": {
+        "overall": 6.5,
+        "scores": {
+          "clarity": 7.6,
+          "accuracy": 6.1,
+          "concision": 6.1,
+          "coherence": 6.2
+        },
+        "issues": [
+          "Ajouter des références explicites aux documents et aux outils.",
+          "Quantifier les constats avec les chiffres issus des outils.",
+          "Ajouter une section Sources avec les citations complètes.",
+          "Développer l'analyse (réponse trop courte)."
+        ]
+      },
+      "iterations": [
+        {
+          "label": "Initial",
+          "overall": 6.5,
+          "scores": {
+            "clarity": 7.6,
+            "accuracy": 6.1,
+            "concision": 6.1,
+            "coherence": 6.2
+          }
+        },
+        {
+          "label": "Itération 1",
+          "overall": 9.1,
+          "scores": {
+            "clarity": 9.1,
+            "accuracy": 9.2,
+            "concision": 10,
+            "coherence": 8.5
+          }
+        },
+        {
+          "label": "Itération 2",
+          "overall": 9.4,
+          "scores": {
+            "clarity": 9.1,
+            "accuracy": 9.2,
+            "concision": 10,
+            "coherence": 9.5
+          }
+        }
+      ],
+      "final": {
+        "overall": 9.4,
+        "scores": {
+          "clarity": 9.1,
+          "accuracy": 9.2,
+          "concision": 10,
+          "coherence": 9.5
+        },
+        "confidence": "Haute"
+      },
+      "gain": 2.9,
+      "elapsed_ms": 22.8,
+      "words": 316,
+      "citations": 7
+    },
+    {
+      "id": "T4",
+      "question": "Quel est le risque de surcharge sur le réseau de Casablanca à 19 h demain si la température monte de 5 °C ?",
+      "region_code": "CAS",
+      "intent": "forecast",
+      "tools": [
+        "forecast_load",
+        "get_region_profile",
+        "search_knowledge"
+      ],
+      "sources": [
+        "DOC-DELESTAGE · v3.2 · article 5",
+        "DOC-PREVISION · v2.9 · article 1",
+        "DOC-DELESTAGE · v3.2 · article 1",
+        "DOC-PREVISION · v2.9 · article 2",
+        "DOC-PREVISION · v2.9 · article 4",
+        "DOC-DELESTAGE · v3.2 · article 3"
+      ],
+      "initial": {
+        "overall": 6.6,
+        "scores": {
+          "clarity": 7.6,
+          "accuracy": 6.4,
+          "concision": 6.3,
+          "coherence": 6.0
+        },
+        "issues": [
+          "Ajouter des références explicites aux documents et aux outils.",
+          "Ajouter une section Sources avec les citations complètes.",
+          "Développer l'analyse (réponse trop courte)."
+        ]
+      },
+      "iterations": [
+        {
+          "label": "Initial",
+          "overall": 6.6,
+          "scores": {
+            "clarity": 7.6,
+            "accuracy": 6.4,
+            "concision": 6.3,
+            "coherence": 6.0
+          }
+        },
+        {
+          "label": "Itération 1",
+          "overall": 9.2,
+          "scores": {
+            "clarity": 9.1,
+            "accuracy": 9.2,
+            "concision": 10,
+            "coherence": 8.9
+          }
+        },
+        {
+          "label": "Itération 2",
+          "overall": 9.5,
+          "scores": {
+            "clarity": 9.1,
+            "accuracy": 9.2,
+            "concision": 10,
+            "coherence": 9.9
+          }
+        }
+      ],
+      "final": {
+        "overall": 9.5,
+        "scores": {
+          "clarity": 9.1,
+          "accuracy": 9.2,
+          "concision": 10,
+          "coherence": 9.9
+        },
+        "confidence": "Haute"
+      },
+      "gain": 2.9,
+      "elapsed_ms": 68.0,
+      "words": 388,
+      "citations": 11
+    },
+    {
+      "id": "T5",
+      "question": "Quelles actions permettent de réduire les pertes techniques et non techniques de deux points ?",
+      "region_code": "NATIONAL",
+      "intent": "kpi",
+      "tools": [
+        "get_grid_kpis",
+        "get_consumption",
+        "get_service_quality",
+        "search_knowledge"
+      ],
+      "sources": [
+        "DOC-AMI · v1.8 · article 2",
+        "DOC-QUALITE-ANRE · v1.5 · article 1",
+        "DOC-MAINT-TR · v5.0 · article 2",
+        "DOC-INCIDENTS · v3.0 · article 1"
+      ],
+      "initial": {
+        "overall": 6.5,
+        "scores": {
+          "clarity": 7.6,
+          "accuracy": 6.2,
+          "concision": 6.3,
+          "coherence": 5.8
+        },
+        "issues": [
+          "Ajouter des références explicites aux documents et aux outils.",
+          "Quantifier les constats avec les chiffres issus des outils.",
+          "Ajouter une section Sources avec les citations complètes.",
+          "Développer l'analyse (réponse trop courte)."
+        ]
+      },
+      "iterations": [
+        {
+          "label": "Initial",
+          "overall": 6.5,
+          "scores": {
+            "clarity": 7.6,
+            "accuracy": 6.2,
+            "concision": 6.3,
+            "coherence": 5.8
+          }
+        },
+        {
+          "label": "Itération 1",
+          "overall": 9.2,
+          "scores": {
+            "clarity": 9.1,
+            "accuracy": 9.2,
+            "concision": 10,
+            "coherence": 8.7
+          }
+        },
+        {
+          "label": "Itération 2",
+          "overall": 9.5,
+          "scores": {
+            "clarity": 9.1,
+            "accuracy": 9.2,
+            "concision": 10,
+            "coherence": 9.9
+          }
+        }
+      ],
+      "final": {
+        "overall": 9.5,
+        "scores": {
+          "clarity": 9.1,
+          "accuracy": 9.2,
+          "concision": 10,
+          "coherence": 9.9
+        },
+        "confidence": "Haute"
+      },
+      "gain": 3.0,
+      "elapsed_ms": 24.2,
+      "words": 295,
+      "citations": 6
+    }
+  ],
+  "averages": {
+    "initial": 6.48,
+    "final": 9.4,
+    "gain": 2.92,
+    "latency_ms": 35.7,
+    "citations": 8.6
+  }
+}

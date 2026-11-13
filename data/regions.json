@@ -1,0 +1,109 @@
+{
+  "generated_at": "2026-11-12",
+  "regions": [
+    {
+      "code": "CAS",
+      "name": "Casablanca-Settat",
+      "population_m": 7.6,
+      "clients": 2140000,
+      "consumption_gwh": 11200,
+      "peak_mw": 3260,
+      "renewable_share_pct": 18.0,
+      "losses_pct": 7.8,
+      "saidi_min": 210,
+      "saifi": 4.2,
+      "dependency_index": 83.8
+    },
+    {
+      "code": "RSK",
+      "name": "Rabat-Salé-Kénitra",
+      "population_m": 4.9,
+      "clients": 1360000,
+      "consumption_gwh": 6800,
+      "peak_mw": 1980,
+      "renewable_share_pct": 22.0,
+      "losses_pct": 7.2,
+      "saidi_min": 165,
+      "saifi": 3.4,
+      "dependency_index": 80.2
+    },
+    {
+      "code": "MRS",
+      "name": "Marrakech-Safi",
+      "population_m": 4.7,
+      "clients": 1250000,
+      "consumption_gwh": 5600,
+      "peak_mw": 1620,
+      "renewable_share_pct": 31.0,
+      "losses_pct": 8.6,
+      "saidi_min": 245,
+      "saifi": 4.9,
+      "dependency_index": 72.1
+    },
+    {
+      "code": "FES",
+      "name": "Fès-Meknès",
+      "population_m": 4.4,
+      "clients": 1180000,
+      "consumption_gwh": 5200,
+      "peak_mw": 1510,
+      "renewable_share_pct": 24.0,
+      "losses_pct": 8.1,
+      "saidi_min": 230,
+      "saifi": 4.5,
+      "dependency_index": 78.4
+    },
+    {
+      "code": "TTA",
+      "name": "Tanger-Tétouan-Al Hoceïma",
+      "population_m": 4.0,
+      "clients": 1050000,
+      "consumption_gwh": 4900,
+      "peak_mw": 1430,
+      "renewable_share_pct": 38.0,
+      "losses_pct": 7.4,
+      "saidi_min": 195,
+      "saifi": 3.9,
+      "dependency_index": 65.8
+    },
+    {
+      "code": "SOM",
+      "name": "Souss-Massa",
+      "population_m": 3.1,
+      "clients": 860000,
+      "consumption_gwh": 3800,
+      "peak_mw": 1180,
+      "renewable_share_pct": 35.0,
+      "losses_pct": 9.2,
+      "saidi_min": 260,
+      "saifi": 5.1,
+      "dependency_index": 68.5
+    },
+    {
+      "code": "ORI",
+      "name": "Oriental",
+      "population_m": 2.6,
+      "clients": 690000,
+      "consumption_gwh": 2900,
+      "peak_mw": 960,
+      "renewable_share_pct": 21.0,
+      "losses_pct": 8.9,
+      "saidi_min": 275,
+      "saifi": 5.4,
+      "dependency_index": 81.1
+    },
+    {
+      "code": "BMK",
+      "name": "Béni Mellal-Khénifra",
+      "population_m": 2.7,
+      "clients": 720000,
+      "consumption_gwh": 1900,
+      "peak_mw": 890,
+      "renewable_share_pct": 29.0,
+      "losses_pct": 9.5,
+      "saidi_min": 285,
+      "saifi": 5.6,
+      "dependency_index": 73.9
+    }
+  ]
+}

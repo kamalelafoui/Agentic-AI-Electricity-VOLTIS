@@ -1,0 +1,75 @@
+{
+  "name": "Grid Analyst",
+  "description": "Analyse la consommation, le mix de production et les KPI réseau.",
+  "url": "http://127.0.0.1:8102",
+  "version": "1.0.0",
+  "protocolVersion": "0.3.0",
+  "provider": {
+    "organization": "VOLTIS",
+    "url": "http://localhost:8033"
+  },
+  "documentationUrl": "http://localhost:8033/?page=a2a&agent=grid-analyst",
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "stateTransitionHistory": true
+  },
+  "defaultInputModes": [
+    "text/plain",
+    "application/json"
+  ],
+  "defaultOutputModes": [
+    "text/markdown",
+    "application/json"
+  ],
+  "skills": [
+    {
+      "id": "grid-analyst.main",
+      "name": "Grid Analyst",
+      "description": "Analyse la consommation, le mix de production et les KPI réseau.",
+      "tags": [
+        "consommation",
+        "production",
+        "mix",
+        "kpi",
+        "région",
+        "charge"
+      ],
+      "examples": [
+        "Quel est le mix de production national ?",
+        "Donne-moi le profil de la région Casablanca-Settat.",
+        "Quelle est la consommation mensuelle du réseau ?"
+      ],
+      "inputModes": [
+        "text/plain"
+      ],
+      "outputModes": [
+        "text/markdown",
+        "application/json"
+      ]
+    }
+  ],
+  "metadata": {
+    "agent_id": "grid-analyst",
+    "tools": [
+      "get_grid_kpis",
+      "get_region_profile",
+      "get_consumption",
+      "get_production_mix"
+    ],
+    "keywords": [
+      "consommation",
+      "production",
+      "mix",
+      "kpi",
+      "région",
+      "charge",
+      "renouvelable",
+      "clients",
+      "pertes"
+    ],
+    "port": 8102,
+    "hub": "VOLTIS Agentic Hub",
+    "owner": "Direction Digitale & Exploitation"
+  }
+}

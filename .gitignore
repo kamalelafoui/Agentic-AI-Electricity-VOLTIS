@@ -1,0 +1,26 @@
+# Secrets et environnement
+.env
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Logs et données volatiles
+a2a/logs/*.log
+data/mcp_calls.jsonl
+data/a2a_delegations.jsonl
+data/demo_report.json
+
+# Systèmes
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+
+# Livrables lourds / temporaires
+*.zip
+_*.tmp

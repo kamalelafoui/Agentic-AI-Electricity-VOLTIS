@@ -1,0 +1,73 @@
+{
+  "name": "Forecast Agent",
+  "description": "Prévoit la charge, la pointe, la marge de réserve et le risque de tension.",
+  "url": "http://127.0.0.1:8105",
+  "version": "1.0.0",
+  "protocolVersion": "0.3.0",
+  "provider": {
+    "organization": "VOLTIS",
+    "url": "http://localhost:8033"
+  },
+  "documentationUrl": "http://localhost:8033/?page=a2a&agent=forecast-agent",
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "stateTransitionHistory": true
+  },
+  "defaultInputModes": [
+    "text/plain",
+    "application/json"
+  ],
+  "defaultOutputModes": [
+    "text/markdown",
+    "application/json"
+  ],
+  "skills": [
+    {
+      "id": "forecast-agent.main",
+      "name": "Forecast Agent",
+      "description": "Prévoit la charge, la pointe, la marge de réserve et le risque de tension.",
+      "tags": [
+        "prévision",
+        "demain",
+        "pointe",
+        "risque",
+        "surcharge",
+        "réserve"
+      ],
+      "examples": [
+        "Quel est le risque de surcharge demain à 19 h ?",
+        "Prévois la pointe de Casablanca avec +5 °C.",
+        "Quelle réserve faut-il mobiliser demain ?"
+      ],
+      "inputModes": [
+        "text/plain"
+      ],
+      "outputModes": [
+        "text/markdown",
+        "application/json"
+      ]
+    }
+  ],
+  "metadata": {
+    "agent_id": "forecast-agent",
+    "tools": [
+      "forecast_load",
+      "get_grid_kpis"
+    ],
+    "keywords": [
+      "prévision",
+      "demain",
+      "pointe",
+      "risque",
+      "surcharge",
+      "réserve",
+      "météo",
+      "température",
+      "19h"
+    ],
+    "port": 8105,
+    "hub": "VOLTIS Agentic Hub",
+    "owner": "Direction Digitale & Exploitation"
+  }
+}

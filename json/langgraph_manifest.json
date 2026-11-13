@@ -1,0 +1,243 @@
+{
+  "framework": "LangGraph",
+  "version": "1.x",
+  "entrypoint": "shared.workflow.run_workflow",
+  "nodes": [
+    {
+      "id": "planner",
+      "label": "Planner",
+      "role": "Classification d'intention, extraction région/cible, sélection des outils."
+    },
+    {
+      "id": "retrieve",
+      "label": "Retriever",
+      "role": "Recherche hybride BM25 + TF-IDF dans le corpus."
+    },
+    {
+      "id": "tools",
+      "label": "Tools",
+      "role": "Appels MCP : KPI, incidents, prévision, facture, RAG."
+    },
+    {
+      "id": "writer",
+      "label": "Writer",
+      "role": "Génération d'un brouillon structuré et chiffré."
+    },
+    {
+      "id": "critic",
+      "label": "Critic",
+      "role": "Notation clarté, exactitude, concision, cohérence."
+    },
+    {
+      "id": "refine",
+      "label": "Refiner",
+      "role": "Réécriture ciblée avec sources, plan d'action et limites."
+    },
+    {
+      "id": "finalize",
+      "label": "Finalize",
+      "role": "Consolidation, sources et niveau de confiance."
+    }
+  ],
+  "edges": [
+    [
+      "START",
+      "planner"
+    ],
+    [
+      "planner",
+      "retrieve"
+    ],
+    [
+      "retrieve",
+      "tools"
+    ],
+    [
+      "tools",
+      "writer"
+    ],
+    [
+      "writer",
+      "critic"
+    ],
+    [
+      "critic",
+      "refine",
+      "score < seuil et itérations < max"
+    ],
+    [
+      "refine",
+      "critic"
+    ],
+    [
+      "critic",
+      "finalize",
+      "score ≥ seuil ou itérations = max"
+    ],
+    [
+      "finalize",
+      "END"
+    ]
+  ],
+  "state": [
+    "question",
+    "region_code",
+    "audience",
+    "top_k",
+    "threshold",
+    "max_iterations",
+    "intent",
+    "intent_label",
+    "plan",
+    "tool_names",
+    "tool_arguments",
+    "sources",
+    "tool_results",
+    "tool_trace",
+    "draft",
+    "critique",
+    "score_history",
+    "iterations",
+    "trace",
+    "started_at",
+    "elapsed_ms",
+    "final_answer",
+    "confidence"
+  ],
+  "reflexion": {
+    "pattern": "Generate → Critic → Refine",
+    "threshold": 8.2,
+    "max_iterations": 2,
+    "criteria": [
+      "clarity",
+      "accuracy",
+      "concision",
+      "coherence"
+    ],
+    "weights": {
+      "clarity": 0.28,
+      "accuracy": 0.34,
+      "concision": 0.14,
+      "coherence": 0.24
+    }
+  },
+  "checkpointing": {
+    "enabled": false,
+    "reason": "Démo locale sans base de persistance ; thread_id prêt pour une extension."
+  },
+  "project": "VOLTIS",
+  "nodes_detail": [
+    {
+      "id": "planner",
+      "inputs": [
+        "question",
+        "region_code"
+      ],
+      "outputs": [
+        "intent",
+        "plan",
+        "tool_names"
+      ],
+      "latency_ms": 2
+    },
+    {
+      "id": "retrieve",
+      "inputs": [
+        "question",
+        "intent",
+        "top_k"
+      ],
+      "outputs": [
+        "sources"
+      ],
+      "latency_ms": 4
+    },
+    {
+      "id": "tools",
+      "inputs": [
+        "tool_names",
+        "region_code"
+      ],
+      "outputs": [
+        "tool_results",
+        "tool_trace"
+      ],
+      "latency_ms": 6
+    },
+    {
+      "id": "writer",
+      "inputs": [
+        "sources",
+        "tool_results",
+        "intent"
+      ],
+      "outputs": [
+        "draft"
+      ],
+      "latency_ms": 3
+    },
+    {
+      "id": "critic",
+      "inputs": [
+        "draft"
+      ],
+      "outputs": [
+        "critique",
+        "score_history"
+      ],
+      "latency_ms": 2
+    },
+    {
+      "id": "refine",
+      "inputs": [
+        "draft",
+        "critique",
+        "sources"
+      ],
+      "outputs": [
+        "draft",
+        "iterations"
+      ],
+      "latency_ms": 3
+    },
+    {
+      "id": "finalize",
+      "inputs": [
+        "draft",
+        "critique"
+      ],
+      "outputs": [
+        "final_answer",
+        "confidence",
+        "elapsed_ms"
+      ],
+      "latency_ms": 1
+    }
+  ],
+  "state_schema": {
+    "question": "str",
+    "region_code": "str",
+    "audience": "str",
+    "top_k": "int",
+    "threshold": "float",
+    "max_iterations": "int",
+    "intent": "str",
+    "plan": "list[str]",
+    "tool_names": "list[str]",
+    "sources": "list[Source]",
+    "tool_results": "dict[str, Any]",
+    "tool_trace": "list[ToolCall]",
+    "draft": "str",
+    "critique": "dict",
+    "score_history": "list[Score]",
+    "iterations": "int",
+    "trace": "list[TraceStep]",
+    "final_answer": "str",
+    "confidence": "str"
+  },
+  "commands": {
+    "run": "python main.py demo",
+    "single": "python -m langgraph_workflow.workflow",
+    "test": "python -m pytest tests/ -q"
+  }
+}
