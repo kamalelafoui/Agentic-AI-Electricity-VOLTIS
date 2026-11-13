@@ -12,6 +12,7 @@ ROOT_FILES = [
     "main.py",
     "README.md",
     "LIVRABLES.md",
+    "GITHUB.md",
     "MANIFEST.txt",
     "LICENSE",
     "requirements.txt",
