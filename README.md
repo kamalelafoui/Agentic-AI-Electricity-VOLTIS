@@ -9,6 +9,7 @@
 [![MCP](https://img.shields.io/badge/MCP-JSON--RPC_2.0-16A6A1?style=flat-square)](http://localhost:8100)
 [![A2A](https://img.shields.io/badge/A2A-0.3-7A5AA6?style=flat-square)](http://localhost:8101)
 [![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?style=flat-square&logo=docker)](https://docs.docker.com/compose)
+[![GitHub](https://img.shields.io/badge/GitHub-Agentic--AI--Electricity--VOLTIS-0A1F3C?style=flat-square&logo=github)](https://github.com/kamalelafoui/Agentic-AI-Electricity-VOLTIS)
 
 ---
 
@@ -263,5 +264,7 @@ Agentic_AI_Electricity_FINAL/
 ## 📄 Licence
 
 MIT — voir `LICENSE`.
+
+**Dépôt GitHub :** https://github.com/kamalelafoui/Agentic-AI-Electricity-VOLTIS
 
 **VOLTIS v1.0.0** · 12 novembre 2026 · Direction Digitale & Exploitation
