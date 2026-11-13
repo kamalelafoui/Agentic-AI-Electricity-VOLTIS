@@ -35,11 +35,12 @@
 | 9 | Socle métier & RAG | `shared/electricity_core.py` | Python |
 | 10 | Données synthétiques | `data/` | CSV / JSON / Markdown |
 | 11 | Manifests agentiques | `json/*.json` | JSON |
-| 12 | AgentCards | `json/agent_cards/*.json` + `a2a/agent_cards/*.json` | JSON |
-| 13 | Docker | `Dockerfile`, `docker-compose.yml` | YAML / Dockerfile |
-| 14 | Captures d'écran | `screenshots/*.png` | PNG |
-| 15 | Vidéo de démonstration | `videos/VOLTIS_Demo.mp4` | MP4 1 min 50 |
-| 16 | Tests | `tests/test_volt_is.py` | Python unittest |
+| 12 | Workflow Langflow final | `Agentic_AI_Electricity_VOLTIS.json` + `json/Agentic_AI_Electricity_VOLTIS.json` | JSON Langflow |
+| 13 | AgentCards | `json/agent_cards/*.json` + `a2a/agent_cards/*.json` | JSON |
+| 14 | Docker | `Dockerfile`, `docker-compose.yml` | YAML / Dockerfile |
+| 15 | Captures d'écran | `screenshots/*.png` | PNG |
+| 16 | Vidéo de démonstration | `videos/VOLTIS_Demo.mp4` | MP4 1 min 50 |
+| 17 | Tests | `tests/test_volt_is.py` | Python unittest |
 
 ---
 
@@ -96,7 +97,7 @@ A2A        http://127.0.0.1:8101
 python main.py check
 ```
 
-Attendu : `33/33 contrôles réussis` (ou plus selon les fichiers générés).
+Attendu : `34/34 contrôles réussis` (ou plus selon les fichiers générés).
 
 ### 4.4 Docker
 

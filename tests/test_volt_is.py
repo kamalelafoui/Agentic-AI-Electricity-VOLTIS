@@ -137,6 +137,20 @@ class TestManifests(unittest.TestCase):
             self.assertIn("name", card)
             self.assertIn("description", card)
 
+    def test_langflow_json(self):
+        path = ROOT / "Agentic_AI_Electricity_VOLTIS.json"
+        self.assertTrue(path.exists())
+        flow = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(flow["name"], "Agentic_AI_Electricity_VOLTIS")
+        nodes = {node["data"]["id"]: node for node in flow["data"]["nodes"]}
+        self.assertIn("Agent-VOLTIS", nodes)
+        self.assertIn("MCPTools-VOLTIS", nodes)
+        self.assertEqual(len(flow["data"]["edges"]), 3)
+        server = nodes["MCPTools-VOLTIS"]["data"]["node"]["template"]["mcp_server"]["value"]
+        self.assertEqual(server["name"], "volt-is-grid-mcp")
+        self.assertIn("8100", server["config"]["url"])
+        self.assertEqual(flow["volt_is"]["benchmark"]["final"], 9.40)
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

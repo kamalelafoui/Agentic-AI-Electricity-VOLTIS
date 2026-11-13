@@ -14,6 +14,7 @@ ROOT_FILES = [
     "LIVRABLES.md",
     "GITHUB.md",
     "MANIFEST.txt",
+    "Agentic_AI_Electricity_VOLTIS.json",
     "LICENSE",
     "requirements.txt",
     "requirements-dev.txt",

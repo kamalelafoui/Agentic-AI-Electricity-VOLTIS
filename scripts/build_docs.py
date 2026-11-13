@@ -675,6 +675,12 @@ graph.add_edge("finalize", END)""",
 }""",
         language="json",
     )
+    para(
+        doc,
+        "Un export Langflow final est fourni dans le livrable : Agentic_AI_Electricity_VOLTIS.json. "
+        "Il contient le workflow Chat Input → Agent VOLTIS → MCP Tools → Chat Output, les notes "
+        "d'architecture, A2A et Reflexion, ainsi que les métadonnées du projet.",
+    )
     h2(doc, "7.4 Sécurité et limites")
     bullets(
         doc,

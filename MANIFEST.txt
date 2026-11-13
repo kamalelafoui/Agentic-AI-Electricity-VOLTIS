@@ -7,6 +7,7 @@ RACINE
   README.md                       Guide de démarrage, architecture, endpoints, benchmark
   LIVRABLES.md                    Correspondance critères / preuves / checklist
   GITHUB.md                       Publication et mise à jour du dépôt GitHub
+  Agentic_AI_Electricity_VOLTIS.json  Workflow Langflow final (MCP + RAG + notes A2A/Reflexion)
   MANIFEST.txt                    Ce fichier
   LICENSE                         Licence MIT
   requirements.txt                Dépendances Python
@@ -53,6 +54,7 @@ DONNÉES
   data/site.json                  Configuration de marque et de ports
 
 JSON
+  json/Agentic_AI_Electricity_VOLTIS.json  Workflow Langflow final (MCP + RAG + notes A2A/Reflexion)
   json/mcp_manifest.json          Manifest MCP complet
   json/a2a_manifest.json          Manifest A2A complet
   json/rag_manifest.json          Manifest RAG (corpus, retriever, évaluation)
@@ -103,6 +105,7 @@ SCRIPTS
   scripts/build_diagrams_v2.py    Version corrigée des schémas
   scripts/build_charts.py         Graphiques de synthèse
   scripts/build_json.py           Génère les manifests et le benchmark
+  scripts/build_langflow_json.py  Génère le workflow Langflow final
   scripts/build_docs.py           Génère le DOCX et le PDF
   scripts/build_deck.py           Génère le PPTX et le PDF
   scripts/capture_screenshots.py  Capture le dashboard avec Playwright

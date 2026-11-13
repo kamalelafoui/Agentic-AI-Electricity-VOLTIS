@@ -12,6 +12,7 @@ documentation DOCX/PDF, présentation PPTX/PDF et vidéo de démonstration.
 
 - `dashboard/`, `mcp_server/`, `a2a/`, `langgraph_workflow/`, `shared/`
 - `data/`, `json/`, `docs/`, `presentation/`, `assets/`, `screenshots/`, `videos/`
+- `Agentic_AI_Electricity_VOLTIS.json` (workflow Langflow final)
 - `Dockerfile`, `docker-compose.yml`, `main.py`, `requirements.txt`
 - `README.md`, `LIVRABLES.md`, `MANIFEST.txt`, `LICENSE`
 - `tests/`, `scripts/`

@@ -150,6 +150,18 @@ Chaque agent publie une **AgentCard** sur `/.well-known/agent.json` et accepte `
 L'orchestrateur expose `GET /agents`, `POST /discover`, `POST /orchestrate` et génère un
 **correlation_id** propagé dans `data/a2a_delegations.jsonl`.
 
+### Workflow Langflow final
+
+Le fichier **`Agentic_AI_Electricity_VOLTIS.json`** contient le workflow Langflow final :
+`Chat Input → Agent VOLTIS → MCP Tools (10 outils) → Chat Output`, avec les notes
+d'architecture, A2A et Reflexion, et les métadonnées `volt_is` (benchmark, ports, liens).
+
+```text
+MCP Server : volt-is-grid-mcp
+Transport  : SSE
+URL        : http://127.0.0.1:8100/sse
+```
+
 ---
 
 ## 📚 RAG agentique
@@ -206,6 +218,7 @@ Latence moyenne : **35,7 ms** · **8,6 citations/réponse**.
 | Orchestrateur A2A | `a2a/server.py` + `a2a/agents.py` |
 | Workflow LangGraph | `langgraph_workflow/workflow.py` |
 | Manifests JSON | `json/*.json` + `json/agent_cards/*.json` |
+| Workflow Langflow final | `Agentic_AI_Electricity_VOLTIS.json` |
 | Docker | `Dockerfile`, `docker-compose.yml` |
 
 Voir `LIVRABLES.md` pour la correspondance complète avec les critères de validation.
